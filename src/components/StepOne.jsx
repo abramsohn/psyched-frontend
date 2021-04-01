@@ -7,8 +7,17 @@ class StepOne extends Component {
             return null
         }
         return (
-            <div>
-                This is step one
+            <div className="form-group">
+                <label htmlFor="stepOne">What is Your Name?</label>
+                <div className="input-group">
+                    <input
+                        type='text'
+                        name="stepOne"
+                        value={this.props.stepOne}
+                        onChange={this.props.handleChange}
+                    />
+                    <div className="form-nav">{this.props.forwardButton}</div>
+                </div>
             </div>
         )
     }

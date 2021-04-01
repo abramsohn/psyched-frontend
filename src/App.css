@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+}
+
+#main-form {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
+  font-size: 2.5em;
+}
+
+.form-group {
+  width: 50%;
+}
+
+.form-group label {
+  display: block;
+  /* background-color: pink; */
+  width: 100%;
+  /* padding: 0.5em 1em 0 0.7em; */
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.input-group input {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  margin: 0.3em 0 0 0;
+  padding: 0.5em 1em 0.5em 0.7em;
+  /* width: calc(100% - 2em); */
+  border: none;
+  background: rgb(245, 245, 245);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1em;
+  line-height: 1;
+  outline: none;
+  /* border-bottom: 1px solid black; */
+  /* opacity: 0; */
+  /* -webkit-transition: opacity 0.3s; */
+  /* transition: opacity 0.3s; */
+}
+
+.input-group .navigation {
+  /* background-color: pink; */
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-75%, -40%);
+}
+
+.input-group .form-nav {
+  /* background-color: pink; */
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-75%, -50%);
+}
+
+.form-nav button {
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  cursor: pointer;
+}
