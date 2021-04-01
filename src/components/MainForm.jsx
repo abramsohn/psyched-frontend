@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import StepOne from './StepOne.jsx'
 import StepTwo from './StepTwo.jsx'
+import StepThree from './StepThree.jsx'
 
 class MainForm extends Component {
     constructor(props) {
@@ -38,7 +39,9 @@ class MainForm extends Component {
                 <button onClick={this.stepBackward}>Back</button>
             )
         } else {
-            return null
+            return(
+                <button disabled>Back</button>
+            )
         }
     }
 
@@ -49,7 +52,9 @@ class MainForm extends Component {
                 <button onClick={this.stepForward}>Continue</button>
             )
         } else {
-            return null
+            return(
+                <button disabled>Continue</button>
+            )
         }
     }
 
@@ -63,6 +68,7 @@ class MainForm extends Component {
                 
                 <StepOne />
                 <StepTwo />
+                <StepThree />
                 <br />
                 {this.backButton}
                 {this.forwardButton}
