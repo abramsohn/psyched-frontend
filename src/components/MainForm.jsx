@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import StepOne from './StepOne.jsx'
-import StepTwo from './StepTwo.jsx'
-import StepThree from './StepThree.jsx'
+import Statement from './Statement.jsx' 
+import Emotion from './Emotion.jsx' 
+import EmotionIntensity from './EmotionIntensity.jsx' 
+import FactCheck from './FactCheck.jsx' 
+import DistressTolerance from './DistressTolerance.jsx' 
+import ProblemSolving from './ProblemSolving.jsx' 
+import OpositeAction from './OpositeAction.jsx' 
 
 class MainForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentStep: 1,
-            stepOne: '',
-            stepTwo: '',
-            stepThree: '',
+            currentStep: 'statment',
+            statement: '',
+            emotion: '',
+            emotionIntensity: '',
+            factCheck: '',
+            distressTolerance: '',
             
         }
     }
@@ -26,33 +32,38 @@ class MainForm extends Component {
 
     stepForward = () => {
         let currentStep = this.state.currentStep;
-        currentStep = currentStep >= 2 ? 3 : currentStep + 1
-        this.setState({currentStep: currentStep})
-    }
-
-    stepBackward = () => {
-        let currentStep = this.state.currentStep;
-        currentStep = currentStep <= 1 ? 1 : currentStep - 1
-        this.setState({currentStep: currentStep})
-    }
-
-    get backButton() {
-        let currentStep = this.state.currentStep;
-        if (currentStep !== 1) {
-            return (
-                <button type="button" onClick={this.stepBackward}>Back</button>
-            )
-        } else {
-            return(
-                <button type="button" disabled>Back</button>
-            )
+        // currentStep = currentStep >= 2 ? 3 : currentStep + 1
+        switch (currentStep) {
+            case 'statment':
+                currentStep = 'emotion'
+                break;
+            case 'emotion':
+                currentStep = 'emotionIntensity'
+                break;
+            case 'emotionIntensity':
+                if (this.state.emotionIntensity >= 70) {
+                    currentStep = 'distressTolerance'
+                } else {
+                    currentStep = 'factCheck'
+                }
+                break;
+            case 'factCheck':
+                if (this.state.factCheck) {
+                    currentStep = 'problemSolving'
+                } else {
+                    currentStep = 'opositeAction'
+                }
+                break;
+            default:
+                break;
         }
+        this.setState({currentStep: currentStep})
     }
 
     get forwardButton() {
         let currentStep = this.state.currentStep;
         // console.log(currentStep)
-        if (currentStep < 3) {
+        if (currentStep !== 'end') {
             // console.log('returning', currentStep)
             return (
                 // <button type="button" onClick={this.stepForward}>Continue</button>
@@ -67,31 +78,75 @@ class MainForm extends Component {
         }
     }
 
+    // stepBackward = () => {
+        // let currentStep = this.state.currentStep;
+        // currentStep = currentStep <= 1 ? 1 : currentStep - 1
+        // this.setState({currentStep: currentStep})
+    // }
+
+    // get backButton() {
+        // let currentStep = this.state.currentStep;
+        // if (currentStep !== 1) {
+            // return (
+                // <button type="button" onClick={this.stepBackward}>Back</button>
+            // )
+        // } else {
+            // return(
+                // <button type="button" disabled>Back</button>
+            // )
+        // }
+    // }
+
     render() {
         return (
             <React.Fragment>
                 <form id="main-form" onSubmit={this.handleSubmit}>
-                    <StepOne
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        forwardButton={this.forwardButton}
-                        stepOne={this.state.stepOne}
+                    <div className="main-form-container">
+                        <Statement
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            Statement={this.state.Statement}
+                            />
+                        <Emotion
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            emotion={this.state.emotion}
+                            />
+                        <EmotionIntensity
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            emotionIntensity={this.state.emotionIntensity}
                         />
-                    <StepTwo
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        forwardButton={this.forwardButton}
-                        stepTwo={this.state.stepTwo}
+                        <FactCheck
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            factCheck={this.state.factCheck}
                         />
-                    <StepThree
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        forwardButton={this.forwardButton}
-                        stepThree={this.state.stepThree}
-                    />
-                <br />
-                {/* {this.backButton} */}
-                {/* {this.forwardButton} */}
+                        <DistressTolerance
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            distressTolerance={this.state.distressTolerance}
+                        />
+                        <OpositeAction
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            opositeAction={this.state.opositeAction}
+                        />
+                        <ProblemSolving
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            forwardButton={this.forwardButton}
+                            problemSolving={this.state.problemSolving}
+                        />
+                            {/* {this.backButton} */}
+                            {/* {this.forwardButton} */}
+                    </div>
                 </form>
             </React.Fragment>
         )

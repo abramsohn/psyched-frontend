@@ -1,19 +1,20 @@
 import React,{ Component } from 'react'
 
-class StepTwo extends Component {
+class ProblemSolving extends Component {
 
     render() {
-        if (this.props.currentStep !== 2) {
+        // if (this.props.currentStep !== 2) {
+        if (this.props.currentStep !== 'problemSolving') {
             return null
         }
         return (
             <div className="form-group">
-                <label htmlFor="stepTwo">What is Your Quest?</label>
+                <label htmlFor="problemSolving">Problem Solving</label>
                 <div className="input-group">
                     <input 
                         type='text' 
-                        name="stepTwo" 
-                        value={this.props.stepTwo}
+                        name="problemSolving" 
+                        value={this.props.problemSolving}
                         onChange={this.props.handleChange}
                     />
                      <div className="form-nav">{this.props.forwardButton}</div>
@@ -23,4 +24,4 @@ class StepTwo extends Component {
     }
 }
 
-export default StepTwo
+export default ProblemSolving
