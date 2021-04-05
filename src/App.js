@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import MainForm from './components/MainForm.jsx'
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import baseUrl from './helpers/baseUrl.js'
+
+import HomePage from './components/HomePage.jsx'
 import Signup from './components/Signup.jsx'
 import Signin from './components/Signin.jsx'
-import Signout from './components/Signout.jsx'
-import baseUrl from './helpers/baseUrl.js'
+import MainForm from './components/MainForm.jsx'
 
 import './App.css';
 
@@ -42,19 +44,25 @@ class App extends Component {
   render() {
     
     return (
-      <div className="App">
-        {!this.state?.user ? 
-        <>
-          <Signup setUser={this.setUser}/>
-          <Signin setUser={this.setUser} />
-        </>
-        :
-        <Signout setUser={this.setUser}/>
-        }
+      <Router>
+        <Switch>
+          <Route exact path="/" >
+            {!this.state?.user ?
+              <Redirect to="/skills" /> :
+              <HomePage />}
+          </Route>
+          <Route path="/signin">
+            <Signin setUser={this.setUser} />
+          </Route>
+          <Route path="/signup">
+             <Signup setUser={this.setUser}/>
+          </Route>
+          <Route>
+              <MainForm path="/skills" />
+          </Route>
 
-
-        { < MainForm /> }
-      </div>
+        </Switch>
+      </Router>
     );
   }
 }
