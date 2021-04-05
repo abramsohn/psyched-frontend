@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import baseUrl from '../helpers/baseUrl.js'
+import baseUrl from '../../helpers/baseUrl.js'
 
-class Signin extends Component{
+
+class Signup extends Component{
     constructor(props) {
         super(props)
         this.state = {
+            name: '',
             email: '',
             password: '',
         }
@@ -17,10 +19,11 @@ class Signin extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch(`${baseUrl}/users/signin`, {
+        fetch(`${baseUrl}/users/signup`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify({
+                name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
             }),
@@ -36,14 +39,22 @@ class Signin extends Component{
         return (
             <form method='POST' onSubmit={this.handleSubmit}>
                 <fieldset>
-                    <h2>Sign In</h2>
+                    <h2>Sign Up!</h2>
                     <label htmlFor="email">Email</label>
                     <input 
                         type="email"
                         name="email"
                         value={this.state.email}
                         onChange={this.handleChange} 
-                    />                   
+                    />
+                    
+                    <label htmlFor="name">Name</label>
+                    <input 
+                        type="text"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange} 
+                    />
                     
                     <label htmlFor="password">Password</label>
                     <input 
@@ -53,11 +64,11 @@ class Signin extends Component{
                         onChange={this.handleChange} 
                     />
 
-                    <input type="submit" value="Sign In"/>
+                    <input type="submit" value="Sign Up"/>
                 </fieldset>
             </form>
         )
     }
 }
 
-export default Signin
+export default Signup

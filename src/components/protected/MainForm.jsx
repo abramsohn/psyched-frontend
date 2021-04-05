@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Navigation from './Navigation.jsx' 
 import Statement from './Statement.jsx' 
 import Emotion from './Emotion.jsx' 
 import EmotionIntensity from './EmotionIntensity.jsx' 
@@ -99,7 +100,8 @@ class MainForm extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
+                <Navigation setUser={this.props.setUser} />
                 <form id="main-form" onSubmit={this.handleSubmit}>
                     <div className="main-form-container">
                         <Statement
@@ -148,7 +150,7 @@ class MainForm extends Component {
                             {/* {this.forwardButton} */}
                     </div>
                 </form>
-            </React.Fragment>
+            </>
         )
     }
 

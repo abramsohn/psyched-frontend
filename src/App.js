@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from
+"react-router-dom";
+
 import baseUrl from './helpers/baseUrl.js'
 
-import HomePage from './components/HomePage.jsx'
-import Signup from './components/Signup.jsx'
-import Signin from './components/Signin.jsx'
-import MainForm from './components/MainForm.jsx'
+import HomePage from './components/public/HomePage.jsx'
+import Signup from './components/public/Signup.jsx'
+import Signin from './components/public/Signin.jsx'
+import MainForm from './components/protected/MainForm.jsx'
 
 import './App.css';
 
@@ -39,6 +41,9 @@ class App extends Component {
       user: name,
       userRole: role
     })
+    if (!name) {
+      return <Redirect to="/singin" />
+    }
   }
 
   render() {
@@ -48,8 +53,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" >
             {!this.state?.user ?
-              <Redirect to="/skills" /> :
-              <HomePage />}
+              <HomePage />:
+              <Redirect to="/skills" />
+              }
           </Route>
           <Route path="/signin">
             <Signin setUser={this.setUser} />
@@ -58,7 +64,7 @@ class App extends Component {
              <Signup setUser={this.setUser}/>
           </Route>
           <Route>
-              <MainForm path="/skills" />
+              <MainForm path="/skills" setUser={this.setUser} />
           </Route>
 
         </Switch>

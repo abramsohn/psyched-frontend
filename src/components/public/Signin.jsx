@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import baseUrl from '../helpers/baseUrl.js'
+import baseUrl from '../../helpers/baseUrl.js'
 
-class Signup extends Component{
+class Signin extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
             email: '',
             password: '',
         }
@@ -18,19 +17,22 @@ class Signup extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch(`${baseUrl}/users/signup`, {
+        fetch(`${baseUrl}/users/signin`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify({
-                name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
             }),
             headers: { 'Content-Type': 'application/json' },
             
         })
-        .then(res => res.json())
-        .then(user => this.props.setUser(user))
+            .then(res => res.json())
+            .then(user => (
+                this.props.setUser(user),
+                history.push("/skills")
+            )
+            )
         .catch(error => console.log({ 'Error': error }));
     }
 
@@ -38,22 +40,14 @@ class Signup extends Component{
         return (
             <form method='POST' onSubmit={this.handleSubmit}>
                 <fieldset>
-                    <h2>Sign Up!</h2>
+                    <h2>Sign In</h2>
                     <label htmlFor="email">Email</label>
                     <input 
                         type="email"
                         name="email"
                         value={this.state.email}
                         onChange={this.handleChange} 
-                    />
-                    
-                    <label htmlFor="name">Name</label>
-                    <input 
-                        type="text"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleChange} 
-                    />
+                    />                   
                     
                     <label htmlFor="password">Password</label>
                     <input 
@@ -63,11 +57,11 @@ class Signup extends Component{
                         onChange={this.handleChange} 
                     />
 
-                    <input type="submit" value="Sign Up"/>
+                    <input type="submit" value="Sign In"/>
                 </fieldset>
             </form>
         )
     }
 }
 
-export default Signup
+export default Signin
