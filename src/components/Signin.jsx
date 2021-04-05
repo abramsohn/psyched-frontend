@@ -28,7 +28,7 @@ class Signin extends Component{
             
         })
         .then(res => res.json())
-        .then(createdUser => console.log(createdUser))
+        .then(user => this.props.setUser(user))
         .catch(error => console.log({ 'Error': error }));
     }
 

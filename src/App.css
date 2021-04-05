@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #f3f2f5;
+  --bg-color: #ffffff;
   --flat-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #868686;
   --inset-shadow: inset -10px -10px 20px #ffffff, inset 10px 10px 20px #868686;
   --radius: 20px;
@@ -30,9 +30,9 @@ body {
   width: 50%;
   height: 50%;
   padding: 2%;
-  border-radius: var(--radius);
+  /* border-radius: var(--radius); */
   background: var(--bg-color);
-  box-shadow: var(--flat-shadow);
+  /* box-shadow: var(--flat-shadow); */
 }
 
 .form-group {
@@ -51,7 +51,7 @@ body {
   margin-bottom: 100px;
 }
 
-/* .input-group input {
+.input-group input {
   box-sizing: border-box;
   width: 100%;
   display: block;
@@ -63,10 +63,9 @@ body {
   font-size: 1em;
   line-height: 1;
   outline: none;
-  
-} */
+}
 
-.input-group input {
+/* .input-group input {
   box-sizing: border-box;
   width: 100%;
   display: block;
@@ -80,7 +79,7 @@ body {
   line-height: 1;
   outline: none;
   box-shadow: inset 5px 5px 10px #aaaaaa, inset -5px -5px 10px #ffffff;
-}
+} */
 
 /* The container must be positioned relative: */
 .custom-select {

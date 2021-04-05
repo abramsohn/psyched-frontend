@@ -7,15 +7,31 @@ import Signout from './components/Signout.jsx'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: null,
+      userRole: null
+    }
+  }
 
-  render(){
+  setUser = ({name, role}) => {
+    this.setState({
+      user: name,
+      userRole: role
+    })
+  }
+
+  render() {
+    
     return (
       <div className="App">
         <Signup />
-        <Signin />
+        <Signin setUser={this.setUser} />
         <Signout />
 
-        < MainForm />
+
+        { < MainForm /> }
       </div>
     );
   }
