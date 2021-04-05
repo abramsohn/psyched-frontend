@@ -10,7 +10,7 @@ class Signout extends Component{
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
         })
-        // .then(res => res.json())
+        .then(this.props.setUser({ name: null, role:null }))
         // .then(createdUser => console.log(createdUser))
         // .catch(error => console.log({ 'Error': error }));
     }

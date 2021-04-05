@@ -43,9 +43,14 @@ class App extends Component {
     
     return (
       <div className="App">
-        <Signup setUser={this.setUser}/>
-        <Signin setUser={this.setUser} />
-        <Signout />
+        {!this.state?.user ? 
+        <>
+          <Signup setUser={this.setUser}/>
+          <Signin setUser={this.setUser} />
+        </>
+        :
+        <Signout setUser={this.setUser}/>
+        }
 
 
         { < MainForm /> }
