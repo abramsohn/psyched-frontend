@@ -2,15 +2,13 @@ import React from 'react';
 import { ProvideAuth } from './useAuth.js';
 
 import {
-  // BrowserRouter as Router,
-  // Link,
-  // Switch,
-  // Route,
-  // Redirect,
-  // useHistory,
-  // useLocation
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
 } from
 "react-router-dom";
+import PrivetRoute from './components/PrivetRoute.jsx';
 
 // import baseUrl from './helpers/baseUrl.js'
 
@@ -22,39 +20,30 @@ import Signout from './components/protected/Signout.jsx'
 
 import './App.css';
 import MainForm from './components/protected/MainForm.jsx';
-// import HomePage from './components/public/HomePage.jsx';
-// import MainForm from './components/protected/MainForm.jsx';
+import HomePage from './components/public/HomePage.jsx';
 
 function App() {
   
-  // componentDidMount() {
-    // this.authenticatUser();
-  // }
-
-  // authenticatUser = () => {
-    // fetch(`${baseUrl}/users`, {
-        // method: 'GET',
-        // credentials: 'include',
-        // headers: { 'Content-Type': 'application/json' },
-        
-    // })
-    // .then(res => res.json())
-    // .then(user => this.setUser(user))
-    // .catch(error => console.log({ 'Error': error }));
-  // }
-
-  // setUser = ({name, role}) => {
-    // this.setState({
-      // user: name,
-      // userRole: role
-    // })
-    // if (!name) {
-      // return <Redirect to="/singin" />
-    // }
-  // }
-
   return (
     <ProvideAuth>
+      <Router>
+        <ul>
+          <li>
+            <Link to="/public">this is public</Link>
+          </li>
+          <li>
+            <Link to="/protected">this is protected</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route path="/public">
+            <HomePage />
+          </Route>
+          <PrivetRoute path="/protected">
+            <MainForm />
+          </PrivetRoute>
+        </Switch>
+      </Router>
         <Signin />
         <Signup />
         <Signout />
