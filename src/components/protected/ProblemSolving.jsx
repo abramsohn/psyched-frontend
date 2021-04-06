@@ -1,9 +1,13 @@
 import React from 'react'
+import FormNavigation from './FormNavigation.jsx'
 
 function ProblemSolving(props) {
-    // if (this.props.currentStep !== 'problemSolving') {
-        // return null
-    // }
+    const previusStep = 'factCheck'
+    const nextStep = null
+
+    if (props.currentStep !== 'problemSolving') {
+        return null
+    }
     return (
         <div className="form-group">
             <label htmlFor="problemSolving">Problem Solving</label>
@@ -14,7 +18,13 @@ function ProblemSolving(props) {
                     value={props.problemSolving}
                     onChange={e => props.setProblemSolving(e.target.value)}
                 />
-                    {/* <div className="form-nav">{props.forwardButton}</div> */}
+                {/* <div className="form-nav"> */}
+                    <FormNavigation
+                        setCurrentStep={props.setCurrentStep}
+                        nextStep={nextStep}
+                        previusStep={previusStep}
+                    />
+                {/* </div> */}
             </div>
         </div>
     )

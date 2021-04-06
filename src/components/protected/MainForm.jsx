@@ -11,60 +11,60 @@ import ProblemSolving from './ProblemSolving.jsx'
 
 
 const MainForm = () => {
-    // const [currentStep, setCurrentStep] = useState('statment')
-    const [statement, setStatement] = useState('somethingElse')
+    const [currentStep, setCurrentStep] = useState('statement')
+    const [statement, setStatement] = useState('')
     const [emotion, setEmotion] = useState('')
     const [emotionIntensity, setEmotionIntensity] = useState('')
     const [factCheck, setFactCheck] = useState('')
     // const [distressTolerance, setDistressTolerance] = useState('')
     const [opositeAction, setOpositeAction] = useState('')
     const [problemSolving, setProblemSolving] = useState('')
-    
-    // function changeStatment(event) {
-        // const { value } = event.target;
-        // setStatement(value);
-    // }
 
     return (
         <>
             <form id="main-form" onSubmit={ () => console.log('click')}>
                 <div className="main-form-container">
                     <Statement
-                        // currentStep={currentStep}
-                        // setCurrentStep={setCurrentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // forwardButton={this.forwardButton}
                         statement={statement}
                         setStatement={setStatement}
                     />
                      <Emotion
-                        // currentStep={this.state.currentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // handleChange={this.handleChange}
                         // forwardButton={this.forwardButton}
                         emotion={emotion}
                         setEmotion={setEmotion}
                     /> 
                     <EmotionIntensity
-                        // currentStep={this.state.currentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // handleChange={this.handleChange}
                         // forwardButton={this.forwardButton}
                         emotionIntensity={emotionIntensity}
                         setEmotionIntensity={setEmotionIntensity}
                     />
                     <FactCheck
-                        // currentStep={this.state.currentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // handleChange={this.handleChange}
                         // forwardButton={this.forwardButton}
                         factCheck={factCheck}
                         setFactCheck={setFactCheck}
                     />
                     <DistressTolerance
-                        // currentStep={this.state.currentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // handleChange={this.handleChange}
                         // forwardButton={this.forwardButton}
-                        // distressTolerance={this.state.distressTolerance}
+                        // distressTolerance={distressTolerance}
                         />
                     <OpositeAction
-                        // currentStep={this.state.currentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // handleChange={this.handleChange}
                         // forwardButton={this.forwardButton}
                         opositeAction={opositeAction}
@@ -72,7 +72,8 @@ const MainForm = () => {
                         />
                          
                     <ProblemSolving
-                        // currentStep={this.state.currentStep}
+                        currentStep={currentStep}
+                        setCurrentStep={setCurrentStep}
                         // handleChange={this.handleChange}
                         // forwardButton={this.forwardButton}
                         problemSolving={problemSolving}

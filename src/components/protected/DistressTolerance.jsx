@@ -1,11 +1,15 @@
 import React from 'react'
+import FormNavigation from './FormNavigation.jsx'
 
-function DistressTolerance() {
+function DistressTolerance(props) {
+    const previusStep = 'emotionIntensity'
+    const nextStep = null
 
-    // if (this.props.currentStep !== 'distressTolerance') {
-        // return null
-    // }
-    
+
+    if (props.currentStep !== 'distressTolerance') {
+        return null
+    }
+
     return (
         <div className="form-group">
             <div className="custom-select">
@@ -18,6 +22,13 @@ function DistressTolerance() {
                     <input type="radio" name="DistressSkill" value="IMPROVE" />IMPROVE
                 </fieldset>
             </div>
+            {/* <div className="form-nav"> */}
+                <FormNavigation
+                    setCurrentStep={props.setCurrentStep}
+                    nextStep={nextStep}
+                    previusStep={previusStep}
+                />
+            {/* </div> */}
         </div>
 
     )

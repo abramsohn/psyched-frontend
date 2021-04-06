@@ -1,9 +1,13 @@
 import React from 'react'
+import FormNavigation from './FormNavigation.jsx'
 
 function OpositeAction(props) {
-    // if (this.props.currentStep !== 'opositeAction') {
-    //     return null
-    // }
+    const previusStep = 'factCheck'
+    const nextStep = null
+    
+    if (props.currentStep !== 'opositeAction') {
+        return null
+    }
     return (
         <div className="form-group">
             <label htmlFor="opositeAction">Oposite Action</label>
@@ -14,7 +18,13 @@ function OpositeAction(props) {
                     value={props.opositeAction}
                     onChange={e => props.setOpositeAction(e.target.value)}
                 />
-                    {/* <div className="form-nav">{this.props.forwardButton}</div> */}
+                {/* <div className="form-nav"> */}
+                    <FormNavigation
+                        setCurrentStep={props.setCurrentStep}
+                        nextStep={nextStep}
+                        previusStep={previusStep}
+                    />
+                {/* </div> */}
             </div>
         </div>
     )

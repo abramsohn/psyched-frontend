@@ -1,11 +1,13 @@
-// import React,{ Component } from 'react'
 import React from 'react'
+import FormNavigation from './FormNavigation.jsx'
 
 function Statement(props) {
-    // if (this.props.currentStep !== 'statment') {
-        // return null
-    // }
-    // const [statement, setStatement] = useState('something')
+    const previusStep = null
+    const nextStep = 'emotion'
+
+    if (props.currentStep !== 'statement') {
+        return null
+    }
     return (
         <div className="form-group">
             <label htmlFor="statement">Tell Me What Happened?</label>
@@ -16,7 +18,13 @@ function Statement(props) {
                     value={props.statement}
                     onChange={e => props.setStatement(e.target.value)}
                 />
-                {/* <div className="form-nav">{this.props.forwardButton}</div> */}
+                {/* <div className="form-nav"> */}
+                <FormNavigation
+                        setCurrentStep={props.setCurrentStep}
+                        nextStep={nextStep}
+                        previusStep={previusStep}
+                    />
+                {/* </div> */}
             </div>
         </div>
     )
