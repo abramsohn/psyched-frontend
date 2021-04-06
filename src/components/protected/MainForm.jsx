@@ -43,6 +43,8 @@ const MainForm = () => {
                     <FactCheck
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
+                        statement={statement}
+                        emotion={emotion}
                         factCheck={factCheck}
                         setFactCheck={setFactCheck}
                     />
@@ -53,6 +55,7 @@ const MainForm = () => {
                     <OpositeAction
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
+                        emotion={emotion}
                         opositeAction={opositeAction}
                         setOpositeAction={setOpositeAction}
                         />

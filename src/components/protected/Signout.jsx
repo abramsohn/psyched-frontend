@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import baseUrl from '../../helpers/baseUrl.js'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 
-class Signout extends Component{
+function Signout() {
 
-    handleClick = () => {
+    function handleClick() {
         // event.preventDefault()
         fetch(`${baseUrl}/users/signout`, {
             method: 'POST',
@@ -12,19 +12,19 @@ class Signout extends Component{
             headers: { 'Content-Type': 'application/json' },
         })
             .then(
-                this.props.setUser({ name: null, role: null },
-                this.props.history.push('/')
-                ))
+                console.log('signed out')
+                // this.props.setUser({ name: null, role: null },
+                // this.props.history.push('/')
+                )
         // .then(createdUser => console.log(createdUser))
         // .catch(error => console.log({ 'Error': error }));
     }
 
-    render() {
-        return (
-            <button onClick={this.handleClick}>Signout</button>
-            )
-        
-    }
+
+    return (
+        <button onClick={handleClick}>Signout</button>
+        )
 }
 
-export default withRouter(Signout)
+// export default withRouter(Signout)
+export default Signout

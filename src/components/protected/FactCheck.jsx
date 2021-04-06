@@ -9,24 +9,35 @@ function FactCheck(props) {
         return null
     }
     return (
-        <div className="form-group">
-            <label htmlFor="factCheck">Let&apos;s check the facts:</label>
-            <div className="input-group">
-                <input 
-                    type='text' 
-                    name="factCheck" 
-                    value={props.factCheck}
-                    onChange={e => props.setFactCheck(e.target.value)}
-                />
-                <div className="form-nav">
-                    <FormNavigation
-                        setCurrentStep={props.setCurrentStep}
-                        nextStep={nextStep}
-                        previusStep={previusStep}
-                    />
+        <>
+            <h3>OK, let`&apos;`s check the facts, here is what you wrote:</h3>
+            <blockquote>{props.statment}</blockquote>
+            which made you fell {props.emotion}
+            
+            
+            <ol>
+                <li>What are my interpretations, thoughts and assumptions about what happend?</li>
+                <li>Am I assuming a threat?</li>
+                <li>What`&apos;`s the catastrophe?</li>
+                <li>Does my emotions and it`&apos;`s internsity fit theactual facts?</li>
+            </ol>
+            <div className="form-group">
+                <div className="custom-select">
+                    <fieldset>
+                        <input type="radio" name="checkFacts" value='true' />Yes
+                        <input type="radio" name="checkFacts" value='false' />No
+                    </fieldset>
                 </div>
             </div>
-        </div>
+        
+            <div className="form-nav">
+                <FormNavigation
+                    setCurrentStep={props.setCurrentStep}
+                    nextStep={nextStep}
+                    previusStep={previusStep}
+                />
+            </div>
+        </>
     )
 }
 

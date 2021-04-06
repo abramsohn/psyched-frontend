@@ -10,9 +10,9 @@ import {
 import baseUrl from './helpers/baseUrl.js'
 
 // import HomePage from './components/public/HomePage.jsx'
-// import Signup from './components/public/Signup.jsx'
+import Signup from './components/public/Signup.jsx'
 // import Signin from './components/public/Signin.jsx'
-import MainForm from './components/protected/MainForm.jsx'
+// import MainForm from './components/protected/MainForm.jsx'
 
 import './App.css';
 
@@ -54,7 +54,8 @@ class App extends Component {
   render() {
     
     return (
-      <MainForm />
+      // <MainForm />
+      <Signup />
       
       // <Router>
       //   <Switch>

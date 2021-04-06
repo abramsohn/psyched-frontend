@@ -9,6 +9,18 @@ function ProblemSolving(props) {
         return null
     }
     return (
+        <>
+            <p>Ok, so let`&apos;`s do some problem solving:
+             
+            <ul>
+                <li>First thing, identify your goel in solving problem</li>
+                <li>Next, brainstirm a lot of ideas, as many as you can come up with</li>
+                <li>Choose one or two solutions that you think will fit the goal <strong>and is likely to work</strong></li>
+                <li>Put the solution into action</li>
+                <li>Evaluate you result, did it work? If not, try a diffrent solution</li>
+            </ul>
+             
+            </p>
         <div className="form-group">
             <label htmlFor="problemSolving">Problem Solving</label>
             <div className="input-group">
@@ -26,7 +38,8 @@ function ProblemSolving(props) {
                     />
                 {/* </div> */}
             </div>
-        </div>
+            </div>
+        </>
     )
 }
 
