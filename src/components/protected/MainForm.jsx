@@ -1,6 +1,4 @@
-// import React, { Component } from 'react'
 import React, { useState } from 'react'
-// import Navigation from './Navigation.jsx' 
 import Statement from './Statement.jsx' 
 import Emotion from './Emotion.jsx' 
 import EmotionIntensity from './EmotionIntensity.jsx' 
@@ -27,46 +25,34 @@ const MainForm = () => {
                     <Statement
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // forwardButton={this.forwardButton}
                         statement={statement}
                         setStatement={setStatement}
                     />
                      <Emotion
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // handleChange={this.handleChange}
-                        // forwardButton={this.forwardButton}
                         emotion={emotion}
                         setEmotion={setEmotion}
                     /> 
                     <EmotionIntensity
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // handleChange={this.handleChange}
-                        // forwardButton={this.forwardButton}
                         emotionIntensity={emotionIntensity}
                         setEmotionIntensity={setEmotionIntensity}
                     />
                     <FactCheck
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // handleChange={this.handleChange}
-                        // forwardButton={this.forwardButton}
                         factCheck={factCheck}
                         setFactCheck={setFactCheck}
                     />
                     <DistressTolerance
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // handleChange={this.handleChange}
-                        // forwardButton={this.forwardButton}
-                        // distressTolerance={distressTolerance}
                         />
                     <OpositeAction
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // handleChange={this.handleChange}
-                        // forwardButton={this.forwardButton}
                         opositeAction={opositeAction}
                         setOpositeAction={setOpositeAction}
                         />
@@ -74,13 +60,9 @@ const MainForm = () => {
                     <ProblemSolving
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
-                        // handleChange={this.handleChange}
-                        // forwardButton={this.forwardButton}
                         problemSolving={problemSolving}
                         setProblemSolving={setProblemSolving}
                     />
-                    {/* {this.backButton}
-                    {this.forwardButton}  */}
                 </div>
             </form>
         </>
