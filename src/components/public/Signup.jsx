@@ -1,28 +1,16 @@
 import React, { useState } from 'react'
-import baseUrl from '../../helpers/baseUrl.js'
+import { useAuth } from '../../useAuth.js';
 
+function Signup() {
+    const auth = useAuth();
 
-function Signup (){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault()
-        fetch(`${baseUrl}/users/signup`, {
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password,
-            }),
-            headers: { 'Content-Type': 'application/json' },
-            
-        })
-        .then(res => res.json())
-        .then(user => console.log(user))
-        .catch(error => console.log({ 'Error': error }));
+        auth.signup(name, email, password)
     }
 
     return (
@@ -58,6 +46,5 @@ function Signup (){
         </form>
     )
 }
-
 
 export default Signup

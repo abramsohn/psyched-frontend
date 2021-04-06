@@ -7,8 +7,8 @@ import DistressTolerance from './DistressTolerance.jsx'
 import OpositeAction from './OpositeAction.jsx' 
 import ProblemSolving from './ProblemSolving.jsx' 
 
-
 const MainForm = () => {
+
     const [currentStep, setCurrentStep] = useState('statement')
     const [statement, setStatement] = useState('')
     const [emotion, setEmotion] = useState('')
