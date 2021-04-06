@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from
+import {
+  // BrowserRouter as Router,
+  // Switch,
+  // Route,
+  Redirect
+} from
 "react-router-dom";
 
 import baseUrl from './helpers/baseUrl.js'
 
-import HomePage from './components/public/HomePage.jsx'
-import Signup from './components/public/Signup.jsx'
-import Signin from './components/public/Signin.jsx'
+// import HomePage from './components/public/HomePage.jsx'
+// import Signup from './components/public/Signup.jsx'
+// import Signin from './components/public/Signin.jsx'
 import MainForm from './components/protected/MainForm.jsx'
 
 import './App.css';
@@ -49,26 +54,28 @@ class App extends Component {
   render() {
     
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" >
-            {!this.state?.user ?
-              <HomePage />:
-              <Redirect to="/skills" />
-              }
-          </Route>
-          <Route path="/signin">
-            <Signin setUser={this.setUser} />
-          </Route>
-          <Route path="/signup">
-             <Signup setUser={this.setUser}/>
-          </Route>
-          <Route>
-              <MainForm path="/skills" setUser={this.setUser} />
-          </Route>
+      <MainForm />
+      
+      // <Router>
+      //   <Switch>
+      //     <Route exact path="/" >
+      //       {!this.state?.user ?
+      //         <HomePage />:
+      //         <Redirect to="/skills" />
+      //         }
+      //     </Route>
+      //     <Route path="/signin">
+      //       <Signin setUser={this.setUser} />
+      //     </Route>
+      //     <Route path="/signup">
+      //        <Signup setUser={this.setUser}/>
+      //     </Route>
+      //     <Route>
+      //         <MainForm path="/skills" setUser={this.setUser} />
+      //     </Route>
 
-        </Switch>
-      </Router>
+      //   </Switch>
+      // </Router>
     );
   }
 }

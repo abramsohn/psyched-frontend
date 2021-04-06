@@ -1,12 +1,11 @@
-import React,{ Component } from 'react'
+// import React,{ Component } from 'react'
+import React from 'react'
 
-class EmotionIntensity extends Component {
+function EmotionIntensity(props) {
 
-    render() {
-        // if (this.props.currentStep !== 3) {
-        if (this.props.currentStep !== 'emotionIntensity') {
-            return null
-        }
+        // if (this.props.currentStep !== 'emotionIntensity') {
+            // return null
+        // }
         return (
             <div className="form-group">
                 <label htmlFor="emotionIntensity">On a scale of 1-100, how strong were the emotions?</label>
@@ -14,14 +13,14 @@ class EmotionIntensity extends Component {
                     <input 
                         type='range' 
                         name="emotionIntensity" 
-                        value={this.props.emotionIntensity}
-                        onChange={this.props.handleChange}
+                        value={props.emotionIntensity}
+                        onChange={e => props.setEmotionIntensity(e.target.value)}
                     />
-                     <div className="form-nav">{this.props.forwardButton}</div>
+                     {/* <div className="form-nav">{this.props.forwardButton}</div> */}
                 </div>
             </div>
         )
     }
-}
+
 
 export default EmotionIntensity
