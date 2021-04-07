@@ -8,7 +8,7 @@ function Signin() {
 
     useEffect(() => {
             if (auth.user) {
-                history.push('/protected')
+                history.push('/client')
             }
     })
 

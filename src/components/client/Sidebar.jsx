@@ -25,13 +25,21 @@ function Sidebar() {
             </header>
                 <nav id="sidebar-navigation">
                     <ul>
-                        <li>Skills</li>
-                        <li>Diary Card</li>
-                        <li>Mindfullness</li>
-                        <li>More Stuff</li>
+                        <li>
+                            Skills
+                        </li>
+                        <li>
+                            Diary Card
+                        </li>
+                        <li>
+                            Mindfullness
+                        </li>
+                        <li>
+                            More Stuff
+                        </li>
                     </ul>
                 </nav>
-        </aside >
+            </aside >
     )
 }
 

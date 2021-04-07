@@ -5,8 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from
-"react-router-dom";
+} from "react-router-dom";
 import PrivetRoute from './components/PrivetRoute.jsx';
 
 import Signup from './components/public/Signup.jsx'
@@ -23,30 +22,29 @@ import './skeleton.css'
 
 
 function App() {
-  
   return (
     
     <ProvideAuth>
       <div className="container">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <ClientLayout />
-          </Route>
-          <Route exact path="/login">
-            <Signin />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <ClientLayout />
+            </Route>
+            <Route exact path="/login">
+              <Signin />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
 
-          <PrivetRoute path="/protected">
-            <ClientLayout />
-          </PrivetRoute>
-        </Switch>
+            <PrivetRoute path="/client">
+              <ClientLayout />
+            </PrivetRoute>
+          </Switch>
         </Router>
-        </div>
-      </ProvideAuth>
+      </div>
+    </ProvideAuth>
     );
 }
 
