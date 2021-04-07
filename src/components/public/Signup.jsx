@@ -11,6 +11,9 @@ function Signup() {
     function handleSubmit(event) {
         event.preventDefault()
         auth.signup(name, email, password)
+        if (auth.user) {
+            history.push('/protected')
+        }
     }
 
     return (

@@ -11,7 +11,7 @@ function OpositeAction(props) {
 
     return (
         <>
-            <p>let`&apos;`s try opposite action:<br />
+            <p>let&apos;s try opposite action:<br />
                 
                     
             </p>

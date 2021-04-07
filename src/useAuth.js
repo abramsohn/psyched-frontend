@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useContext, createContext
-} from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 
 const authContext = createContext();
 // Provider component that wraps your app and makes auth object ...

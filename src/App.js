@@ -5,49 +5,47 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from
 "react-router-dom";
 import PrivetRoute from './components/PrivetRoute.jsx';
 
-// import baseUrl from './helpers/baseUrl.js'
-
-// import HomePage from './components/public/HomePage.jsx'
 import Signup from './components/public/Signup.jsx'
 import Signin from './components/public/Signin.jsx'
-import Signout from './components/protected/Signout.jsx'
-// import MainForm from './components/protected/MainForm.jsx'
+// import HomePage from './components/public/HomePage.jsx';
+import ClientLayout from './components/client/Layout.jsx';
 
 import './App.css';
-import MainForm from './components/protected/MainForm.jsx';
-import HomePage from './components/public/HomePage.jsx';
+import './normalize.css'
+import './skeleton.css'
+
+
+
+
 
 function App() {
   
   return (
+    
     <ProvideAuth>
+      <div className="container">
       <Router>
-        <ul>
-          <li>
-            <Link to="/public">this is public</Link>
-          </li>
-          <li>
-            <Link to="/protected">this is protected</Link>
-          </li>
-        </ul>
         <Switch>
-          <Route path="/public">
-            <HomePage />
+          <Route exact path="/">
+            <ClientLayout />
           </Route>
+          <Route exact path="/login">
+            <Signin />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+
           <PrivetRoute path="/protected">
-            <MainForm />
+            <ClientLayout />
           </PrivetRoute>
         </Switch>
-      </Router>
-        <Signin />
-        <Signup />
-        <Signout />
-        <MainForm />
+        </Router>
+        </div>
       </ProvideAuth>
     );
 }

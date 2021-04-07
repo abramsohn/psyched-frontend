@@ -10,16 +10,15 @@ function FactCheck(props) {
     }
     return (
         <>
-            <h3>OK, let`&apos;`s check the facts, here is what you wrote:</h3>
-            <blockquote>{props.statment}</blockquote>
-            which made you fell {props.emotion}
+            <p>OK, let&apos;s check the facts, here is what you wrote:<br />
+            <blockquote>{props.statement}</blockquote><br />
+            which made you feel {props.emotion}<br />
             
-            
+            Now, ask yourself the following questions:
+            </p>
             <ol>
                 <li>What are my interpretations, thoughts and assumptions about what happend?</li>
-                <li>Am I assuming a threat?</li>
-                <li>What`&apos;`s the catastrophe?</li>
-                <li>Does my emotions and it`&apos;`s internsity fit theactual facts?</li>
+                <li>Does my emotion and its intensity fit the actual facts?</li>
             </ol>
             <div className="form-group">
                 <div className="custom-select">

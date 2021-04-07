@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Proza+Libre:ital,wght@0,400;1,500&display=swap");
+
 :root {
   --bg-color: #ffffff;
   --flat-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #868686;
@@ -6,13 +8,62 @@
 }
 
 body {
+  font-family: "Proza Libre", sans-serif;
   margin: 0;
+  padding: 25px 0;
   background-color: var(--bg-color);
+  font-size: 87.5%;
+  font-weight: 400;
+  color: rgb(40, 40, 40);
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 4em;
+}
+
+#sidebar {
+}
+
+#user {
+  text-align: center;
+}
+
+#user-image {
+  display: block;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#user-image img {
+  vertical-align: middle;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.greeting {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#sidebar-navigation ul {
+  list-style: none;
 }
 
 #main-form {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   /* flex-direction: column; */
   justify-content: center;

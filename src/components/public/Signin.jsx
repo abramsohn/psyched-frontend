@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../useAuth.js';
+import { useHistory } from "react-router-dom";
 
-function Signin() {
-            
+function Signin() {        
     const auth = useAuth();
+    let history = useHistory();
+
+    useEffect(() => {
+            if (auth.user) {
+                history.push('/protected')
+            }
+    })
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     function handleSubmit(event) {
         event.preventDefault()
         auth.signin(email, password)
+        if (auth.user) {
+            history.push('/protected')
+        }
         // fetch(`${baseUrl}/users/signin`, {
         //     method: 'POST',
         //     credentials: 'include',
