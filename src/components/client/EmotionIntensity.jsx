@@ -15,9 +15,17 @@ function EmotionIntensity(props) {
             range.classList.remove(...range.classList);
             range.classList.add(trackColor)
         }
-        // range.classList.add(trackColor)
     },[trackColor])
-    // const [trackColor, setTrackColor] = useState('rgb(245, 245, 245');
+
+     useEffect(()=>{
+        const bubble = document.querySelector('.range-bubble');
+        if (bubble) {
+            bubble.style.left = `${Number(props.emotionIntensity / 4)}px`;
+        }
+    },[props.emotionIntensity])
+
+
+
     
     if (props.currentStep !== 'emotionIntensity') { return null };
     
@@ -37,8 +45,9 @@ function EmotionIntensity(props) {
     return (
         <div className="form-group">
             <label htmlFor="emotionIntensity">On a scale of 1-100, how strong were the emotions?</label>
-            <div className="input-group">                
-                <input 
+            <div className="input-group">
+                <input
+                    className={trackColor}
                     type='range' 
                     name="emotionIntensity"
                     id='range'
@@ -48,14 +57,12 @@ function EmotionIntensity(props) {
                     value={props.emotionIntensity}
                     onChange={handleChange}
                 />
-                {/* <div className="form-nav"> */}
-                    <FormNavigation
-                        setCurrentStep={props.setCurrentStep}
-                        nextStep={nextStep}
-                        previusStep={previusStep}
-                    />
-                {/* </div> */}
             </div>
+            <FormNavigation
+                setCurrentStep={props.setCurrentStep}
+                nextStep={nextStep}
+                previusStep={previusStep}
+            />
         </div>
     )
 }

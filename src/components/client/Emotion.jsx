@@ -6,7 +6,7 @@ function Emotion(props) {
     const previusStep = 'statement'
     const nextStep = 'emotionIntensity'
 
-    const emotions = [ 'anger', 'disgust', 'envy', 'fear', 'happiness', 'jealousy', 'love', 'sadness', 'shame', 'guilt' ]
+    const emotions = [ 'Anger', 'Disgust', 'Envy', 'Fear', 'Jealousy', 'Love', 'Sadness', 'Shame', 'Guilt' ]
     
     if (props.currentStep !== 'emotion') {
         return null
@@ -23,7 +23,13 @@ function Emotion(props) {
                             <option value="">Choose the closest one:</option>
                             {emotions.map( (emotion, index) => {
                                 return (
-                                    <option key={index} value={emotion}>{emotion}</option>
+                                    <option
+                                        key={index}
+                                        value={emotion}
+                                        selected={emotion == props.emotion}
+                                    >
+                                        {emotion}
+                                    </option>
                                     )
                                 })
                             }

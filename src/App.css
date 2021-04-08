@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Proza+Libre:ital,wght@0,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Proza+Libre:ital,wght@0,400;1,500;1,800&display=swap");
 
 :root {
   --bg-color: #ffffff;
@@ -18,7 +18,6 @@ body {
   font-family: "Proza Libre", sans-serif !important;
   margin: 0;
   background-color: var(--bg-color);
-  font-size: 87.5%;
   font-weight: 400;
   color: rgb(40, 40, 40);
 }
@@ -28,10 +27,30 @@ body {
   padding-top: 2% !important;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 700;
+}
+
+h1 {
   font-size: 4em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.5em;
+  font-weight: lighter;
+  line-height: 1.1;
+}
+
+h4 {
+  font-size: 1.2em !important;
+  font-weight: 800 !important;
+}
+
+#main-form ul {
+  list-style: disc !important;
 }
 
 #sidebar {
@@ -78,14 +97,14 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5em;
+  /* font-size: 2.5em; */
 }
 
 .main-form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   box-sizing: border-box;
   width: 75%;
   height: 57%;
@@ -102,12 +121,11 @@ h1 {
 
 .form-group label {
   font-family: "Cormorant Garamond", serif;
+  font-size: 2.5em;
   font-weight: lighter;
   display: block;
   line-height: 1.1;
-  /* background-color: pink; */
   width: 100%;
-  /* padding: 0.5em 1em 0 0.7em; */
 }
 
 .input-group {
@@ -117,12 +135,13 @@ h1 {
 
 .input-group input[type="text"],
 .input-group input[type="range"],
+.input-group select,
 .input-group textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
   margin: 0.3em 0 0 0;
-  font-size: 0.75em;
+  font-size: 1.5em;
   background: rgb(245, 245, 245);
   border: none !important;
   outline: none;
@@ -137,9 +156,13 @@ h1 {
   /* height: 35vh; */
 }
 
+.input-group select {
+  height: 50px;
+}
+
 .input-group textarea {
   height: 35vh;
-  line-height: 1.2;
+  line-height: 1.35;
   resize: none;
   outline: none;
 }
@@ -370,8 +393,77 @@ input[type="range"].red:focus::-ms-fill-upper {
   background: rgb(250, 85, 60);
 }
 
+blockquote {
+  font-size: 1.4em;
+  width: 75%;
+  margin: 5px auto;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  color: #555555;
+  padding: 1.2em 30px 1.2em 75px;
+  border-left: 8px solid #78c0a8;
+  line-height: 1.6;
+  position: relative;
+  background: #ededed;
+}
+
+blockquote::before {
+  font-family: Arial;
+  content: "\201C";
+  color: #78c0a8;
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+}
+
+blockquote::after {
+  content: "";
+}
+
 .form-navigation {
   width: 100%;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.form-group.radio-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.radio-button-label {
+  width: 100px;
+  cursor: pointer;
+  padding: 15px 0;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  margin: 0 7.5%;
+  max-width: 150px;
+  transition: background 0.5s ease;
+}
+.radio-button-label.green:hover {
+  background: rgb(40, 200, 130);
+}
+
+input[type="radio"]:checked + label.green {
+  background: rgb(40, 200, 130);
+}
+
+input[type="radio"]:checked + label.red {
+  background: rgb(250, 85, 60);
+}
+
+.radio-button-label.red:hover {
+  background: rgb(250, 85, 60);
+}
+
+.form-group:last-child {
+  margin: 0;
 }
 
 .form-navigation button {
@@ -385,4 +477,9 @@ input[type="range"].red:focus::-ms-fill-upper {
 
 .FloatLeft {
   float: left;
+}
+
+strong {
+  display: inline;
+  font-weight: bolder;
 }
