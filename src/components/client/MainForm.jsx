@@ -14,7 +14,7 @@ const MainForm = () => {
     const [emotion, setEmotion] = useState('')
     const [emotionIntensity, setEmotionIntensity] = useState('')
     const [factCheck, setFactCheck] = useState('')
-    // const [distressTolerance, setDistressTolerance] = useState('')
+    const [skill, setSkill] = useState('')
     const [opositeAction, setOpositeAction] = useState('')
     const [problemSolving, setProblemSolving] = useState('')
 
@@ -51,6 +51,8 @@ const MainForm = () => {
                     <DistressTolerance
                         currentStep={currentStep}
                         setCurrentStep={setCurrentStep}
+                        skill={skill}
+                        setSkill={setSkill}
                         />
                     <OpositeAction
                         currentStep={currentStep}

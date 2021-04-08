@@ -13,7 +13,7 @@ function Sidebar() {
         
     }
     return (
-        < aside id="sidebar" >
+        <>
             <header id="user">
                 <div id="user-image">
                     <img src="https://www.fillmurray.com/300/300" alt="avatar"/>
@@ -40,7 +40,7 @@ function Sidebar() {
                         </li>
                     </ul>
                 </nav>
-            </aside >
+            </>
     )
 }
 

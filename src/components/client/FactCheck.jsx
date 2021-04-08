@@ -21,7 +21,7 @@ function FactCheck(props) {
                 <li>What are my interpretations, thoughts and assumptions about what happend?</li>
                 <li>Does my emotion and its intensity fit the actual facts?</li>
             </ol>
-            <div className="form-group radio-buttons">  
+                <div className="form-group radio-buttons">  
                 <input 
                     type="radio" 
                     name="checkFacts"
