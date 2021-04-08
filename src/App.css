@@ -7,10 +7,16 @@
   --radius: 20px;
 }
 
+html,
+body,
+#root,
+.container {
+  height: 100%;
+}
+
 body {
-  font-family: "Proza Libre", sans-serif;
+  font-family: "Proza Libre", sans-serif !important;
   margin: 0;
-  padding: 25px 0;
   background-color: var(--bg-color);
   font-size: 87.5%;
   font-weight: 400;
@@ -19,6 +25,7 @@ body {
 
 .container {
   max-width: 100% !important;
+  padding-top: 2% !important;
 }
 
 h1 {
@@ -61,14 +68,16 @@ h1 {
   list-style: none;
 }
 
+.dashboard-main {
+  height: 100%;
+}
+
 #main-form {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  /* background-color: pink; */
   font-size: 2.5em;
 }
 
@@ -78,8 +87,8 @@ h1 {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: 50%;
-  height: 50%;
+  width: 75%;
+  height: 57%;
   padding: 2%;
   /* border-radius: var(--radius); */
   background: var(--bg-color);
@@ -88,10 +97,14 @@ h1 {
 
 .form-group {
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .form-group label {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: lighter;
   display: block;
+  line-height: 1.1;
   /* background-color: pink; */
   width: 100%;
   /* padding: 0.5em 1em 0 0.7em; */
@@ -99,120 +112,277 @@ h1 {
 
 .input-group {
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="range"],
+.input-group textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.3em 0 0 0;
+  font-size: 0.75em;
+  background: rgb(245, 245, 245);
+  border: none !important;
+  outline: none;
+}
+
+.input-group input[type="text"],
+.input-group textarea {
+  padding: 0.5em 1em 0.5em 0.7em;
 }
 
 .input-group input {
-  box-sizing: border-box;
+  /* height: 35vh; */
+}
+
+.input-group textarea {
+  height: 35vh;
+  line-height: 1.2;
+  resize: none;
+  outline: none;
+}
+
+/*** Range input styles ***/
+/* Reset and hide the default styles */
+.input-group input[type="range"] {
+  margin: 25px 0;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
   width: 100%;
-  display: block;
-  margin: 0.3em 0 0 0;
-  padding: 0.5em 1em 0.5em 0.7em;
-  border: none;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Styles for Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: rgb(175, 175, 175);
+  cursor: pointer;
+  transition: background 1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -9px; /* You need to specify a margin in Chrome */
+}
+
+input[type="range"].green::-webkit-slider-thumb {
+  background: rgb(10, 150, 80);
+}
+
+input[type="range"].yellow::-webkit-slider-thumb {
+  background: rgb(220, 130, 40);
+}
+
+input[type="range"].red::-webkit-slider-thumb {
+  background: rgb(180, 25, 20);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: rgb(175, 175, 175);
+  cursor: pointer;
+  transition: background 1s ease;
+}
+
+input[type="range"].green::-moz-range-thumb {
+  background: rgb(10, 150, 80);
+}
+
+input[type="range"].yellow::-moz-range-thumb {
+  background: rgb(220, 130, 40);
+}
+
+input[type="range"].red::-moz-range-thumb {
+  background: rgb(180, 25, 20);
+}
+
+input[type="range"]::-ms-thumb {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: rgb(200, 200, 200);
+  cursor: pointer;
+  transition: background 1s ease;
+}
+
+input[type="range"].green::-ms-thumb {
+  background: rgb(10, 150, 80);
+}
+
+input[type="range"].yellow::-ms-thumb {
+  background: rgb(220, 130, 40);
+}
+
+input[type="range"].red::-ms-thumb {
+  background: rgb(180, 25, 20);
+}
+
+/* Styles for Track */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
   background: rgb(245, 245, 245);
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 1em;
-  line-height: 1;
-  outline: none;
+  border: transparent;
+  transition: background 1s ease;
 }
 
-/* .input-group input {
-  box-sizing: border-box;
+input[type="range"].green::-webkit-slider-runnable-track {
+  background: rgb(40, 200, 130);
+}
+
+input[type="range"].yellow::-webkit-slider-runnable-track {
+  background: rgb(250, 180, 60);
+}
+
+input[type="range"].red::-webkit-slider-runnable-track {
+  background: rgb(250, 85, 60);
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: rgb(245, 245, 245);
+}
+
+input[type="range"].green:focus::-webkit-slider-runnable-track {
+  background: rgb(40, 200, 130);
+}
+
+input[type="range"].yellow:focus::-webkit-slider-runnable-track {
+  background: rgb(250, 180, 60);
+}
+
+input[type="range"].red:focus::-webkit-slider-runnable-track {
+  background: rgb(250, 85, 60);
+}
+
+input[type="range"]::-moz-range-track {
   width: 100%;
-  display: block;
-  margin: 0.3em 0 0 0;
-  padding: 0.5em 1em 0.5em 0.7em;
-  border: none;
-  border-radius: 0;
-  background: var(--bg-color);
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 1em;
-  line-height: 1;
-  outline: none;
-  box-shadow: inset 5px 5px 10px #aaaaaa, inset -5px -5px 10px #ffffff;
-} */
-
-/* The container must be positioned relative: */
-.custom-select {
-  position: relative;
-  font-family: Arial;
-}
-
-.custom-select select {
-  display: none; /*hide original SELECT element: */
-}
-
-.select-selected {
-  background-color: DodgerBlue;
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-
-/* style the items (options), including the selected item: */
-.select-items div,
-.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  height: 8.4px;
   cursor: pointer;
+  background: rgb(245, 245, 245);
+  border: transparent;
+
+  transition: background 0.25s ease;
 }
 
-/* Style items (options): */
-.select-items {
-  position: absolute;
-  background-color: DodgerBlue;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
+input[type="range"].green::-moz-range-track {
+  background: rgb(40, 200, 130);
 }
 
-/* Hide the items when the select box is closed: */
-.select-hide {
-  display: none;
+input[type="range"].yellow::-moz-range-track {
+  background: rgb(250, 180, 60);
 }
 
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+input[type="range"].red::-moz-range-track {
+  background: rgb(250, 85, 60);
 }
 
-.input-group .navigation {
-  /* background-color: pink; */
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(-75%, -40%);
-}
-
-.input-group .form-nav {
-  /* background-color: pink; */
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(-75%, -50%);
-}
-
-.form-nav button {
-  border: none;
-  background-color: transparent;
-  font-size: 1em;
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8.4px;
   cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+  transition: background 0.25s ease;
+}
+input[type="range"]::-ms-fill-lower {
+  background: rgb(245, 245, 245);
+}
+
+input[type="range"].green::-ms-fill-lower {
+  background: rgb(40, 200, 130);
+}
+
+input[type="range"].yellow::-ms-fill-lower {
+  background: rgb(250, 180, 60);
+}
+
+input[type="range"].red::-ms-fill-lower {
+  background: rgb(250, 85, 60);
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: rgb(245, 245, 245);
+}
+
+input[type="range"].green:focus::-ms-fill-lower {
+  background: rgb(40, 200, 130);
+}
+
+input[type="range"].yellow:focus::-ms-fill-lower {
+  background: rgb(250, 180, 60);
+}
+
+input[type="range"].red:focus::-ms-fill-lower {
+  background: rgb(250, 85, 60);
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: rgb(245, 245, 245);
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: rgb(245, 245, 245);
+}
+
+input[type="range"].yellow::-ms-fill-upper {
+  background: rgb(250, 180, 60);
+}
+
+input[type="range"].red::-ms-fill-upper {
+  background: rgb(250, 85, 60);
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: rgb(245, 245, 245);
+}
+
+input[type="range"].green:focus::-ms-fill-upper {
+  background: rgb(40, 200, 130);
+}
+
+input[type="range"].yellow:focus::-ms-fill-upper {
+  background: rgb(250, 180, 60);
+}
+
+input[type="range"].red:focus::-ms-fill-upper {
+  background: rgb(250, 85, 60);
+}
+
+.form-navigation {
+  width: 100%;
+}
+
+.form-navigation button {
+  vertical-align: top;
+}
+
+/* Utill */
+.floatRight {
+  float: right;
+}
+
+.FloatLeft {
+  float: left;
 }

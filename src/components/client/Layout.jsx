@@ -1,26 +1,29 @@
 import React from 'react'
 import Sidebar from './Sidebar.jsx'
 import Dashboard from './Dashboard.jsx'
+import MainForm from './MainForm.jsx'
 
 import {
   BrowserRouter as Router,
-//   Switch,
-//   Route,
+  Switch,
+  Route,
 } from
 "react-router-dom";
+
 
 function Layout() {
     return (
         <>
         <Router>
-            <div className="row">
-                <div className="three columns">
-                    <Sidebar />
-                </div>
-                <div className="nine columns">
-                    <Dashboard />
-                </div>
-            </div>
+            <aside className="dashboard-side three columns">
+                <Sidebar />
+            </aside>
+            <main className="dashboard-main nine columns">
+                <Switch>
+                    <Route exact path="/client/" component={Dashboard} />
+                        <Route path="/client/skills" component={MainForm} />
+                </Switch>
+            </main>
         </Router>
         </>
     )

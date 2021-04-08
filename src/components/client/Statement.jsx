@@ -18,14 +18,13 @@ function Statement(props) {
                     value={props.statement}
                     onChange={e => props.setStatement(e.target.value)}
                 ></textarea>
-                {/* <div className="form-nav"> */}
-                <FormNavigation
-                        setCurrentStep={props.setCurrentStep}
-                        nextStep={nextStep}
-                        previusStep={previusStep}
-                    />
-                {/* </div> */}
+            
             </div>
+            <FormNavigation
+                setCurrentStep={props.setCurrentStep}
+                nextStep={nextStep}
+                previusStep={previusStep}
+            />
         </div>
     )
 }

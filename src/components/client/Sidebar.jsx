@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth } from '../../useAuth.js'
-
+import { Link } from 'react-router-dom'
 function Sidebar() {
     let auth = useAuth();
     
@@ -26,8 +26,9 @@ function Sidebar() {
                 <nav id="sidebar-navigation">
                     <ul>
                         <li>
-                            Skills
+                            <Link to='/client'>Dashboard</Link>
                         </li>
+                            <Link to='/client/skills'>Skills</Link>
                         <li>
                             Diary Card
                         </li>

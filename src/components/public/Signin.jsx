@@ -21,19 +21,6 @@ function Signin() {
         if (auth.user) {
             history.push('/protected')
         }
-        // fetch(`${baseUrl}/users/signin`, {
-        //     method: 'POST',
-        //     credentials: 'include',
-        //     body: JSON.stringify({
-        //         email: email,
-        //         password: password,
-        //     }),
-        //     headers: { 'Content-Type': 'application/json' },
-            
-        // })
-            // .then(res => res.json())
-            // .then(user => (props.setUser(user)))
-            // .catch(error => console.log({ 'Error': error }));
     }
 
     return (

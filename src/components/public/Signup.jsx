@@ -1,8 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../useAuth.js';
+import { useHistory } from "react-router-dom";
 
 function Signup() {
     const auth = useAuth();
+    let history = useHistory();
+
+    useEffect(() => {
+        if (auth.user) {
+            history.push('/client')
+        }
+    })
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

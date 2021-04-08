@@ -6,6 +6,7 @@ function FormNavigation(props) {
         // if (props.nextStep) {
             return (
                 <button
+                    className="floatRight"
                     type="button"
                     onClick={() => props.setCurrentStep(props.nextStep)}>
                     Continue
@@ -18,6 +19,7 @@ function FormNavigation(props) {
         // if (props.previusStep) {
             return(
                 <button
+                    className="floatLeft"
                     type="button"
                     onClick={() => props.setCurrentStep(props.previusStep)}>
                     Back
@@ -27,11 +29,10 @@ function FormNavigation(props) {
     }
 
     return (
-        <>
-            {props.nextStep ? <NextButton /> : null}
+        <nav className="form-navigation">
             {props.previusStep ? <BackButton /> : null}
-             
-        </>
+            {props.nextStep ? <NextButton /> : null}   
+        </nav>
     )
 }
 
