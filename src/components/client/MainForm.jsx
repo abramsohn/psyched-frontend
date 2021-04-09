@@ -23,7 +23,6 @@ const MainForm = () => {
     }, [problemSolving, opositeAction, skill]);
 
     function submitForm() {
-        console.log('submitting')
         fetch(`http://localhost:3004/distress-events`, {
             method: 'POST',
             credentials: 'include',
@@ -42,7 +41,7 @@ const MainForm = () => {
 
     return (
         <>
-            <form id="main-form" onSubmit={ () => console.log('click')}>
+            <form id="main-form">
                 <div className="main-form-container">
                     <Statement
                         currentStep={currentStep}
@@ -76,7 +75,6 @@ const MainForm = () => {
                         skill={skill}
                         setSkill={setSkill}
                         setFactCheck={setFactCheck}
-                        submitForm={submitForm}
                         />
                     <OpositeAction
                         currentStep={currentStep}
@@ -84,7 +82,6 @@ const MainForm = () => {
                         emotion={emotion}
                         opositeAction={opositeAction}
                         setOpositeAction={setOpositeAction}
-                        submitForm={submitForm}
                         />
                          
                     <ProblemSolving
@@ -92,7 +89,6 @@ const MainForm = () => {
                         setCurrentStep={setCurrentStep}
                         problemSolving={problemSolving}
                         setProblemSolving={setProblemSolving}
-                        submitForm={submitForm}
                     />
                 </div>
             </form>
