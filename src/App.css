@@ -554,6 +554,41 @@ input[type="radio"] {
   border-radius: 50%;
 }
 
+.distressEvents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.distressEvents blockquote {
+  font-size: 1em;
+  width: 100%;
+  margin: 5px auto;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  color: #555555;
+  box-sizing: border-box;
+  padding: 0.8em 20px 0.8em 45px;
+  border-left: 4px solid #78c0a8;
+  line-height: 1.6;
+  position: relative;
+  background: #ededed;
+}
+
+.distressEvents blockquote::before {
+  font-family: Arial;
+  content: "\201C";
+  color: #78c0a8;
+  font-size: 2.5em;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+}
+
+.distressEvent {
+  width: 30%;
+}
+
 /* Utill */
 .floatRight {
   float: right;

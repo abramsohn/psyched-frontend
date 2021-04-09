@@ -19,6 +19,7 @@ function Sidebar() {
                             <Link to='/client'>Dashboard</Link>
                         </li>
                             <Link to='/client/skills'>Skills</Link>
+                            <Link to='/client/skills-helper'>+</Link>
                         <li>
                             Diary Card
                         </li>

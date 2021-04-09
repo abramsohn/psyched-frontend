@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Statement from './Statement.jsx' 
 import Emotion from './Emotion.jsx' 
 import EmotionIntensity from './EmotionIntensity.jsx' 
@@ -17,6 +17,28 @@ const MainForm = () => {
     const [skill, setSkill] = useState('')
     const [opositeAction, setOpositeAction] = useState('')
     const [problemSolving, setProblemSolving] = useState('')
+
+    useEffect(() => {
+        submitForm();
+    }, [problemSolving, opositeAction, skill]);
+
+    function submitForm() {
+        console.log('submitting')
+        fetch(`http://localhost:3004/distress-events`, {
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify({
+                description: statement,
+                emotion: emotion,
+                emotionIntensity: Number(emotionIntensity),
+                factCheck: factCheck,
+                skill: skill,
+                opositeAction: opositeAction,
+                problemSolving: problemSolving,
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+    }
 
     return (
         <>
@@ -53,6 +75,8 @@ const MainForm = () => {
                         setCurrentStep={setCurrentStep}
                         skill={skill}
                         setSkill={setSkill}
+                        setFactCheck={setFactCheck}
+                        submitForm={submitForm}
                         />
                     <OpositeAction
                         currentStep={currentStep}
@@ -60,6 +84,7 @@ const MainForm = () => {
                         emotion={emotion}
                         opositeAction={opositeAction}
                         setOpositeAction={setOpositeAction}
+                        submitForm={submitForm}
                         />
                          
                     <ProblemSolving
@@ -67,6 +92,7 @@ const MainForm = () => {
                         setCurrentStep={setCurrentStep}
                         problemSolving={problemSolving}
                         setProblemSolving={setProblemSolving}
+                        submitForm={submitForm}
                     />
                 </div>
             </form>

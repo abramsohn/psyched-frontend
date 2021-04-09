@@ -3,7 +3,7 @@ import { useAuth } from '../../useAuth.js'
 
 const Dashboard = () => {
      let auth = useAuth();
-    
+
     function generateGreeting() {
         const currentTime = new Date().getHours()
         if (currentTime >= 6 && currentTime < 12) return 'Good Morning';
@@ -12,8 +12,11 @@ const Dashboard = () => {
         else if (currentTime >= 21 || currentTime < 6) return 'Good Night';
         
     }
+
     return (
-        <h1><span className="greeting">{generateGreeting()}  {auth.user} </span></h1>
+        <>
+            <h1><span className="greeting">{generateGreeting()}  {auth.user} </span></h1>
+        </>
     )
 }
 

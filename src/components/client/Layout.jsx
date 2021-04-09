@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from './Sidebar.jsx'
 import Dashboard from './Dashboard.jsx'
 import MainForm from './MainForm.jsx'
+import DistressEvents from './DistressEvents.jsx'
 
 import {
   BrowserRouter as Router,
@@ -21,7 +22,8 @@ function Layout() {
             <main className="dashboard-main nine columns">
                 <Switch>
                     <Route exact path="/client/" component={Dashboard} />
-                    <Route path="/client/skills" component={MainForm} />
+                    <Route exact path="/client/skills" component={DistressEvents} />
+                    <Route exact path="/client/skills-helper" component={MainForm} />
                 </Switch>
             </main>
         </Router>

@@ -8,6 +8,7 @@ function ProblemSolving(props) {
     if (props.currentStep !== 'problemSolving') {
         return null
     }
+
     return (
         <>
             <h2>Ok, so let&apos;s do some problem solving:</h2>

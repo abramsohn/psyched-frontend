@@ -20,7 +20,7 @@ function Emotion(props) {
                             onChange={e => props.setEmotion(e.target.value)}
                             onBlur={e => props.setEmotion(e.target.value)}
                             >
-                            <option value="">Choose the closest one:</option>
+                            <option value="" defaultValue>Choose the closest one:</option>
                             {emotions.map( (emotion, index) => {
                                 return (
                                     <option
