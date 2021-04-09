@@ -6,7 +6,7 @@ function Signout() {
     const auth = useAuth();
 
     return (
-        <button onClick={auth.signout}>Signout</button>
+        <button className="signout" onClick={auth.signout}>Signout</button>
         )
 }
 

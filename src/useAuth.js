@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useLayoutEffect, useContext, createContext } from "react";
 
 const authContext = createContext();
 // Provider component that wraps your app and makes auth object ...
@@ -96,7 +96,7 @@ function useProvideAuth() {
   // ... component that utilizes this hook to re-render with the ...
   // ... latest auth object.
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // const unsubscribe = firebase.auth().onAuthStateChanged(user => {
     fetch(`http://localhost:3004/users`, {
         method: 'GET',

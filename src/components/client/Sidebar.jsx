@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Signout from './Signout.jsx'
 function Sidebar() {
    
     return (
@@ -9,7 +10,7 @@ function Sidebar() {
                     <img src="https://www.fillmurray.com/300/300" alt="avatar"/>
                 </div>
                 <div className="user-info">
-                    Edit Profile
+                    Edit Profile | < Signout />
                 </div>
             </header>
                 <nav id="sidebar-navigation">

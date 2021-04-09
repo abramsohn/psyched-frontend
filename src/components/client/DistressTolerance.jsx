@@ -12,8 +12,8 @@ function DistressTolerance(props) {
 
     return (
         <>
-        <h2>Choose a Skill</h2>
-            <div className="form-group radio-buttons">    
+        <h2>Here are a few skills that you can use in order to reduce the emotion intensity, lets chose one:</h2>
+            <div className="form-group radio-buttons-list">    
                 <input
                     type="radio"
                     name="distressSkill"
@@ -22,7 +22,9 @@ function DistressTolerance(props) {
                     checked={props.skill === 'distract'}
                     onChange={e => props.setSkill(e.target.value)}
                 />
-                <label className="radio-button-label blue"htmlFor="distract">Distract</label>
+                <label className="radio-button-label blue" htmlFor="distract">
+                    <h4>Distract</h4><p>This is the description</p>
+                </label>
                  
                 <input 
                     type="radio" 
@@ -32,7 +34,9 @@ function DistressTolerance(props) {
                     checked={props.skill === 'selfSoothe'}
                     onChange={e => props.setSkill(e.target.value)}
                 />
-                <label className="radio-button-label blue"htmlFor="selfSoothe">Self Soothe</label>
+                <label className="radio-button-label blue" htmlFor="selfSoothe">
+                    <h4>Self Soothe</h4><p>This is the description</p>
+                    </label>
                 <input 
                     type="radio" 
                     name="distressSkill" 
@@ -41,7 +45,9 @@ function DistressTolerance(props) {
                     checked={props.skill === 'TIPP'}
                     onChange={e => props.setSkill(e.target.value)}
                 />
-                <label className="radio-button-label blue"htmlFor="TIPP">TIPP</label>
+                <label className="radio-button-label blue" htmlFor="TIPP">
+                    <h4>TIPP</h4><p>This is the description</p>
+                </label>
                 <input 
                     type="radio" 
                     name="distressSkill" 
@@ -50,7 +56,9 @@ function DistressTolerance(props) {
                     checked={props.skill === 'prosCons'}
                     onChange={e => props.setSkill(e.target.value)}
                 />
-                <label className="radio-button-label blue"htmlFor="prosCons">Pros/Cons</label>
+                <label className="radio-button-label blue" htmlFor="prosCons">
+                    <h4>Pros/Cons</h4><p>This is the description</p>
+                </label>
                 <input 
                     type="radio" 
                     name="distressSkill" 
@@ -59,10 +67,13 @@ function DistressTolerance(props) {
                     checked={props.skill === 'IMPROVE'}
                     onChange={e => props.setSkill(e.target.value)}
                 />
-                <label className="radio-button-label blue"htmlFor="IMPROVE">IMPROVE</label>
+                <label className="radio-button-label blue" htmlFor="IMPROVE">
+                    <h4>IMPROVE</h4><p>This is the description</p>
+                </label>
         
        
         
+        </div>
             {/* <div className="form-nav"> */}
                 <FormNavigation
                     setCurrentStep={props.setCurrentStep}
@@ -70,7 +81,6 @@ function DistressTolerance(props) {
                     previusStep={previusStep}
                 />
             {/* </div> */}
-        </div>
         </>
     )
 }
