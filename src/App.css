@@ -522,12 +522,36 @@ input[type="radio"] {
   margin-left: 10px;
 }
 
-.form-group:last-child {
+/* .form-group:last-child {
   margin: 0;
-}
+} */
 
 .form-navigation button {
   vertical-align: top;
+}
+
+#button-back {
+  position: absolute;
+  top: 45%;
+  left: 29%;
+  font-size: 2em;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+}
+
+#button-next {
+  position: absolute;
+  top: 45.5%;
+  right: 6%;
+  font-size: 2em;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
 }
 
 /* Utill */

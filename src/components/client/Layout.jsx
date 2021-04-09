@@ -21,7 +21,7 @@ function Layout() {
             <main className="dashboard-main nine columns">
                 <Switch>
                     <Route exact path="/client/" component={Dashboard} />
-                        <Route path="/client/skills" component={MainForm} />
+                    <Route path="/client/skills" component={MainForm} />
                 </Switch>
             </main>
         </Router>

@@ -36,13 +36,13 @@ function Emotion(props) {
                     </select>
                 </div>
                 {/* <div className="form-nav"> */}
-                    <FormNavigation
-                        setCurrentStep={props.setCurrentStep}
-                        nextStep={nextStep}
-                        previusStep={previusStep}
-                    />
                 {/* </div> */}
             </div>
+            <FormNavigation
+                setCurrentStep={props.setCurrentStep}
+                nextStep={nextStep}
+                previusStep={previusStep}
+            />
         </>
     )
  
