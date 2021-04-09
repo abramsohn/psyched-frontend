@@ -1,10 +1,28 @@
-import React, { useState }from 'react'
+import React, { useState, useEffect }from 'react'
 import { Link } from 'react-router-dom'
 import Signout from './Signout.jsx'
 
 function Sidebar() {
     const [avatar, setAvater] = useState('')
     
+    useEffect(() => {
+        
+        fetch(`http://localhost:3004/users`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(res => res.json())
+        .then(response => {
+            if (response.avatarImage) {
+                setAvater(response.avatarImage);
+            } else {
+                setAvater(null);
+            }
+        });
+    }, []);
+
+
      async function uploadFile (e){
         const files = e.target.files;
         const data = new FormData();
@@ -32,20 +50,23 @@ function Sidebar() {
     return (
         <>
             <header id="user">
-                <div id="user-image">
-                    {avatar && <img src={avatar} alt="avatar" />}
-                </div>
+                <picture id="user-image">
+                    {avatar && <source srcSet={avatar} />}
+                        <img src={`${process.env.PUBLIC_URL}/avatar_placeholder.png`}  alt="User avatar" />
+                </picture>
+                    
                 <div className="user-info">
-                    Edit Profile | < Signout />
-                </div>
-                <label htmlFor="file">Image</label>
-                <input
+                     <input
                     type="file"
-                    id="file"
+                    id="fileUpload"
                     name="file"
                     placeholder="upload an avatar image"
                     onChange={uploadFile}
                 />
+                <label htmlFor="fileUpload">Upload Image</label>
+                    | < Signout />
+                </div>
+               
             
             </header>
                 <nav id="sidebar-navigation">
