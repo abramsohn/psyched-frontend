@@ -27,7 +27,7 @@ function Sidebar() {
         const files = e.target.files;
         const data = new FormData();
         data.append('file', files[0]);
-        data.append('upload_preset', 'psyched');
+        data.append('upload_preset', 'psyched')
         await fetch('https://api.cloudinary.com/v1_1/dxarjpdwm/image/upload', {
             method: 'POST',
             body: data
@@ -43,9 +43,7 @@ function Sidebar() {
             }),
             headers: { 'Content-Type': 'application/json' },
         })
-            .then(res => res.json())
-            .then(res => console.log(res))
-    };
+    }
 
     return (
         <>

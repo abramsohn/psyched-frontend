@@ -27,7 +27,7 @@ function EmotionIntensity(props) {
 
 
     
-    if (props.currentStep !== 'emotionIntensity') { return null };
+    if (props.currentStep !== 'emotionIntensity') { return null }
     
     function handleChange(e) {
         const value = e.target.value
