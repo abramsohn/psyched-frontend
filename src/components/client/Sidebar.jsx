@@ -63,7 +63,7 @@ function Sidebar() {
                     placeholder="upload an avatar image"
                     onChange={uploadFile}
                 />
-                <label htmlFor="fileUpload">Upload Image</label>
+                <label htmlFor="fileUpload">Change Image</label>
                     | < Signout />
                 </div>
                
@@ -74,13 +74,13 @@ function Sidebar() {
                         <li>
                             <Link to='/client'>Dashboard</Link>
                         </li>
-                            <Link to='/client/skills'>Skills</Link>
+                            <Link to='/client/skills'>Skills Coaching</Link>
                             <Link to='/client/skills-helper'>+</Link>
                         <li>
                             Diary Card
                         </li>
                         <li>
-                            Mindfullness
+                            Mindfulness
                         </li>
                         <li>
                             More Stuff

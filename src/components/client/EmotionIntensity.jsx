@@ -44,7 +44,7 @@ function EmotionIntensity(props) {
 
     return (
         <div className="form-group">
-            <label htmlFor="emotionIntensity">On a scale of 1-100, how strong were the emotions?</label>
+            <label htmlFor="emotionIntensity">How strong were the emotions?</label>
             <div className="input-group">
                 <input
                     className={trackColor}

@@ -3,7 +3,7 @@ import FormNavigation from './FormNavigation.jsx'
 
 function FactCheck(props) {
     const previusStep = 'emotionIntensity'
-    let nextStep = props.factCheck === 'yes' ? 'opositeAction' : 'problemSolving'
+    let nextStep = props.factCheck === 'yes' ? 'problemSolving' : 'opositeAction'
 
     if (props.currentStep !== 'factCheck') {
         return null
