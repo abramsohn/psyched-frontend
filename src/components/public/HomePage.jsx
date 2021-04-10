@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useAuth } from '../../useAuth.js';
 import { useHistory } from "react-router-dom";
-import baseUrl from '../../helpers/baseUrl.js'
 
 
 function HomePage() {
@@ -16,7 +15,7 @@ function HomePage() {
     })
     return (
         <>
-            {baseUrl}
+            {console.log(process.env)}
             <h1>I Got You</h1>
             <h2>Psyched is an app that do stuff</h2>
             <p>

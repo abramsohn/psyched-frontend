@@ -43,7 +43,6 @@ const MainForm = () => {
     return (
         <>
             <form id="main-form">
-                {baseUrl}
                 <div className="main-form-container">
                     <Statement
                         currentStep={currentStep}
