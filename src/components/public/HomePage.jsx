@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 function HomePage() {
     const auth = useAuth();
     let history = useHistory();
-    const client_id = process.env.REACT_APP_CLIENT_ID;
     useEffect(() => {
         if (auth.user) {
             history.push('/client')
