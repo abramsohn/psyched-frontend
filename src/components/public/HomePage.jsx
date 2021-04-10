@@ -14,7 +14,7 @@ function HomePage() {
     })
     return (
         <>
-            {console.log(process.env)}
+            {console.log('new build pack',process.env)}
             <h1>I Got You</h1>
             <h2>Psyched is an app that do stuff</h2>
             <p>
