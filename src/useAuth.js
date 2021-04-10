@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect, useContext, createContext } from "react";
+import baseUrl from './helpers/baseUrl' 
 
 const authContext = createContext();
 // Provider component that wraps your app and makes auth object ...
@@ -21,7 +22,7 @@ function useProvideAuth() {
   // Wrap any Firebase methods we want to use making sure ...
   // ... to save the user to state.
   const signin = (email, password) => {
-      return fetch(`http://localhost:3004/users/signin`, {
+      return fetch(`${baseUrl}/users/signin`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify({
@@ -41,7 +42,7 @@ function useProvideAuth() {
     };
 
   const signup = (name, email, password) => {
-    return fetch(`http://localhost:3004/users/signup`, {
+    return fetch(`${baseUrl}/users/signup`, {
           method: 'POST',
           credentials: 'include',
           body: JSON.stringify({
@@ -62,7 +63,7 @@ function useProvideAuth() {
   };
 
   const signout = () => {
-    return fetch(`http://localhost:3004/users/signout`, {
+    return fetch(`${baseUrl}/users/signout`, {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -98,7 +99,7 @@ function useProvideAuth() {
 
   useLayoutEffect(() => {
     // const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-    fetch(`http://localhost:3004/users`, {
+    fetch(`${baseUrl}/users`, {
         method: 'GET',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

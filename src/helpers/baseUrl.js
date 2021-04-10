@@ -3,7 +3,7 @@ let baseURL;
 if (process.env.NODE_ENV === 'development') {
     baseURL = 'http://localhost:3004';
 } else {
-    baseURL = 'production URL';
+    baseURL = 'https://psyched-api.herokuapp.com/';
 }
 
 export default baseURL

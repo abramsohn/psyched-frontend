@@ -6,6 +6,7 @@ import FactCheck from './FactCheck.jsx'
 import DistressTolerance from './DistressTolerance.jsx' 
 import OpositeAction from './OpositeAction.jsx' 
 import ProblemSolving from './ProblemSolving.jsx' 
+import baseUrl from '../../helpers/baseUrl.js' 
 
 const MainForm = () => {
 
@@ -23,7 +24,7 @@ const MainForm = () => {
     }, [problemSolving, opositeAction, skill]);
 
     function submitForm() {
-        fetch(`http://localhost:3004/distress-events`, {
+        fetch(`${baseUrl}/distress-events`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify({
@@ -42,6 +43,7 @@ const MainForm = () => {
     return (
         <>
             <form id="main-form">
+                {baseUrl}
                 <div className="main-form-container">
                     <Statement
                         currentStep={currentStep}

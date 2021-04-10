@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import baseUrl from '../../helpers/baseUrl' 
 
 
 function DistressEvents() {
     const [distressEvents, setDistressEvents] = useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:3004/distress-events`, {
+        fetch(`${baseUrl}/distress-events`, {
             method: 'GET',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

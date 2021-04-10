@@ -1,13 +1,15 @@
 import React, { useState, useEffect }from 'react'
 import { Link } from 'react-router-dom'
 import Signout from './Signout.jsx'
+import baseUrl from '../../helpers/baseUrl.js' 
+
 
 function Sidebar() {
     const [avatar, setAvater] = useState('')
     
     useEffect(() => {
         
-        fetch(`http://localhost:3004/users`, {
+        fetch(`${baseUrl}/users`, {
             method: 'GET',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
@@ -35,7 +37,7 @@ function Sidebar() {
             .then(res => res.json())
             .then(file => setAvater(file.secure_url))
          
-        await fetch(`http://localhost:3004/users/image`, {
+        await fetch(`${baseUrl}/users/image`, {
             method: 'PUT',
             credentials: 'include',
             body: JSON.stringify({
