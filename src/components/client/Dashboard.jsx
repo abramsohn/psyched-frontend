@@ -15,7 +15,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <h1><span className="greeting">{generateGreeting()}  {auth.user} </span></h1>
+            <h1><span className="greeting">{generateGreeting()}  {auth.user.name} </span></h1>
         </>
     )
 }

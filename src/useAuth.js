@@ -126,10 +126,15 @@ function useProvideAuth() {
         headers: { 'Content-Type': 'application/json' },
     })
     .then(res => res.json())
-     .then(response => {
-        if (response.name) {
-          setUser(response.name);
-          return response.name;
+     .then(response => { console.log(response)
+       if (response) {
+         setUser({
+            name: response.name,
+            role: response.role,
+            avatar: response.avatarImage,
+            therapist: response.therapist
+          });
+          return response;
         } else {
           setUser(false);
           return

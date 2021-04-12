@@ -2,9 +2,12 @@ import React, { useState, useEffect }from 'react'
 import { Link } from 'react-router-dom'
 import Signout from './Signout.jsx'
 import baseUrl from '../../helpers/baseUrl.js' 
+import { useAuth } from '../../useAuth' 
 
 
 function Sidebar() {
+    const auth = useAuth();
+
     const [avatar, setAvater] = useState('')
     
     useEffect(() => {
@@ -71,8 +74,12 @@ function Sidebar() {
                
             
             </header>
+            {auth.user.role === 'CLIENT' ?
                 <nav id="sidebar-navigation">
                     <ul>
+                        <li>
+                            <Link to='/client/selectTherapist'>Select Therapist</Link>
+                        </li>
                         <li>
                             <Link to='/client'>Dashboard</Link>
                         </li>
@@ -84,7 +91,18 @@ function Sidebar() {
                         </li>
                             
                     </ul>
+                </nav> :
+                <nav id="sidebar-navigation">
+                    <ul>
+                        <li>
+                            clients
+                            {/* <Link to='/client'>Dashboard</Link> */}
+                        </li>
+                        
+                            
+                    </ul>
                 </nav>
+            }
             </>
     )
 }

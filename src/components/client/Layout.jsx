@@ -3,6 +3,7 @@ import Sidebar from './Sidebar.jsx'
 import Dashboard from './Dashboard.jsx'
 import MainForm from './MainForm.jsx'
 import DistressEvents from './DistressEvents.jsx'
+import SelectTherapist from './SelectTherapist.jsx'
 
 import {
   BrowserRouter as Router,
@@ -24,6 +25,7 @@ function Layout() {
                     <Route exact path="/client/" component={Dashboard} />
                     <Route exact path="/client/skills" component={DistressEvents} />
                     <Route exact path="/client/skills-helper" component={MainForm} />
+                    <Route exact path="/client/selectTherapist" component={SelectTherapist} />
                 </Switch>
             </main>
         </Router>
