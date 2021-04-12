@@ -16,7 +16,7 @@ function Signup(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    function handleSubmit(event) {
+    function handleTherapistSubmit(event) {
         event.preventDefault()
         auth.therapistSignup(name, email, password)
         if (auth.user) {
@@ -26,7 +26,7 @@ function Signup(props) {
 
     return (
         <div className="form-signup">
-            <form method='POST' onSubmit={handleSubmit}>
+            <form method='POST' onSubmit={handleTherapistSubmit}>
                 <h2>Hi There!</h2>
                 
                 <label htmlFor="name">Name</label>

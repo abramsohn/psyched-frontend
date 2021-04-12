@@ -16,7 +16,7 @@ function Signup(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    function handleSubmit(event) {
+    function handleClientSubmit(event) {
         event.preventDefault()
         auth.signup(name, email, password)
         if (auth.user) {
@@ -26,7 +26,7 @@ function Signup(props) {
 
     return (
         <div className="form-signup">
-            <form method='POST' onSubmit={handleSubmit}>
+            <form method='POST' onSubmit={handleClientSubmit}>
                 <h2>Welcome!</h2>
                 
                 <label htmlFor="name">Name</label>

@@ -42,6 +42,7 @@ function useProvideAuth() {
     };
 
   const signup = (name, email, password) => {
+    console.log('user signup')
     return fetch(`${baseUrl}/users/signup`, {
           method: 'POST',
           credentials: 'include',
@@ -62,7 +63,8 @@ function useProvideAuth() {
         // .catch(error => console.log({ 'Error': error }));
   };
 
-    const therapistSignup = (name, email, password) => {
+  const therapistSignup = (name, email, password) => {
+    console.log('therapist signup')
     return fetch(`${baseUrl}/users/therapist/signup`, {
           method: 'POST',
           credentials: 'include',
@@ -127,7 +129,7 @@ function useProvideAuth() {
     })
     .then(res => res.json())
      .then(response => { console.log(response)
-       if (response) {
+       if (response.name) {
          setUser({
             name: response.name,
             role: response.role,
