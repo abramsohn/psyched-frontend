@@ -52,6 +52,38 @@ h4 {
   font-weight: 800 !important;
 }
 
+.home-page {
+  width: 75%;
+  margin: 2% auto;
+}
+
+.tag {
+  /* display: inline; */
+  position: relative;
+  /* text-align: center; */
+  margin: 0 auto;
+  width: fit-content;
+  margin-bottom: 50px;
+}
+.tag h1 {
+  /* position: relative; */
+  font-size: 8em;
+  margin-bottom: 0;
+}
+.tag h2 {
+  display: block;
+  position: relative;
+  /* font-size: 2.5em; */
+  /* text-align: right; */
+  right: -30px;
+  top: -30px;
+  text-align: right;
+  margin-right: 10%;
+}
+
+.description {
+  margin-bottom: 50px;
+}
 #main-form ul {
   list-style: disc !important;
 }
@@ -627,4 +659,8 @@ input[type="radio"] {
 strong {
   display: inline;
   font-weight: bolder;
+}
+
+.text-center {
+  text-align: center;
 }

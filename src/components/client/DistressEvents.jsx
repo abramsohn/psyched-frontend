@@ -20,7 +20,8 @@ function DistressEvents() {
 
     function formatDate(string) {
         const date = new Date(string);   
-        return `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
+        // console.log(date)
+        return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
     }
 
     function formatTime(string) {
