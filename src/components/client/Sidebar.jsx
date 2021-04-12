@@ -34,18 +34,19 @@ function Sidebar() {
             method: 'POST',
             body: data
         })
-            .then(res => res.json())
-            .then(file => setAvater(file.secure_url))
-         
-        await fetch(`${baseUrl}/users/image`, {
+        .then(res => res.json())
+        .then(res => fetch(`${baseUrl}/users/image`, {
             method: 'PUT',
             credentials: 'include',
             body: JSON.stringify({
-                image: avatar
+                image: res.secure_url
             }),
             headers: { 'Content-Type': 'application/json' },
-        })
-            .then(res => console.log(res.json()))
+            })
+            
+            .then(res => res.json())
+            .then(res => setAvater(res.image))
+        )    
     }
 
     return (
