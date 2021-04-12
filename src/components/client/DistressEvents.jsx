@@ -30,23 +30,34 @@ function DistressEvents() {
 
     return(
         <div className="distressEvents">
-                {distressEvents.map((event, index) => {
-                    return (
-                        <div key={index} className="distressEvent">
-                            <header>
-                                {formatDate(event.createdAt)}, {formatTime(event.createdAt)}
-                            </header>
-                        <blockquote>{event.description}</blockquote>
-                        Emotion: {event.emotion} <br />
-                        Emotion Intensity:{event.emotionIntensity}  <br />
-                        Does it fit the facts: {event.factCheck}<br />
-                        Oposite Action Helped?: {event.oppositeAction}<br />
-                        Problem Solving Helped?: {event.problemSolving}<br />
-                        Skills Used: {event.skill}<br />
+            {distressEvents.length > 0 ? 
+            <table>
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Time</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {distressEvents.map((event, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{formatDate(event.createdAt)}</td>
+                                <td> {formatTime(event.createdAt)}</td>
+                                <td>
+                                    You used skill coaching for {event.emotionIntensity > 70 ? `high levels of ${event.emotion}. ` : `${event.emotion}. `}
+                                    {event.skill ? `you used ${ event.skill } in order to regulate your emotions` : ''}
+                                    {event.factCheck == 'no' && 'You checked the facts and decided that they dont match your reaction and decided to do opposite action'}
+                                    {event.factCheck == 'yes' &&'You checked the facts and decided that they did match your reaction and decided to do problem solving'}
+                                </td>
                         
-                    </div>
-                    )
-                })}
+                            </tr>
+                            )
+                        })}
+                </tbody>
+                </table>
+                 : <h3>You didn&apos;t use skills coaching yet</h3>}
         </div>
     )
 }

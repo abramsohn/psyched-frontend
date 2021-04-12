@@ -3,7 +3,7 @@ import FormNavigation from './FormNavigation.jsx'
 
 function DistressTolerance(props) {
     const previusStep = 'emotionIntensity'
-    const nextStep = null
+    const nextStep = props.skill
 
 
     if (props.currentStep !== 'distressTolerance') {
@@ -13,6 +13,7 @@ function DistressTolerance(props) {
     function handleChange(e) {
         props.setSkill(e.target.value)
         props.setFactCheck('')
+        props.submitForm()
     }
 
     return (
@@ -56,7 +57,7 @@ function DistressTolerance(props) {
                 <label className="radio-button-label blue" htmlFor="TIPP">
                     <h4>TIPP</h4><p>This is the description</p>
                 </label>
-                <input 
+                {/* <input 
                     type="radio" 
                     name="distressSkill" 
                     id="prosCons" 
@@ -64,10 +65,10 @@ function DistressTolerance(props) {
                     checked={props.skill === 'prosCons'}
                     // onChange={e => props.setSkill(e.target.value)}
                     onChange={handleChange}
-                />
-                <label className="radio-button-label blue" htmlFor="prosCons">
+                /> */}
+                {/* <label className="radio-button-label blue" htmlFor="prosCons">
                     <h4>Pros/Cons</h4><p>This is the description</p>
-                </label>
+                </label> */}
                 <input 
                     type="radio" 
                     name="distressSkill" 

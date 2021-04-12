@@ -9,6 +9,11 @@ function FactCheck(props) {
         return null
     }
 
+    // async function handleChange(e) {
+    //     await props.setFactCheck(e.target.value)
+    //     props.submitForm()
+    // }
+
     return (
         <>
             <h3>OK, let&apos;s check the facts</h3>
@@ -29,6 +34,7 @@ function FactCheck(props) {
                     value='yes'
                     checked={props.factCheck === 'yes'}
                     onChange={e => props.setFactCheck(e.target.value)}
+                    // onChange={handleChange}
                     />
                     <label className="radio-button-label green"htmlFor="factCheckYes">Yes</label>
                 
@@ -39,6 +45,7 @@ function FactCheck(props) {
                     value='no'
                     checked={props.factCheck === 'no'}
                     onChange={e => props.setFactCheck(e.target.value)}
+                    // onChange={handleChange}
                 />
                 <label className="radio-button-label red" htmlFor="factCheckNo">No</label>
             </div>

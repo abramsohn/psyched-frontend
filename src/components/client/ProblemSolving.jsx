@@ -1,13 +1,18 @@
 import React from 'react'
-import FormNavigation from './FormNavigation.jsx'
+// import FormNavigation from './FormNavigation.jsx'
 
 function ProblemSolving(props) {
-    const previusStep = 'factCheck'
-    const nextStep = null
+    // const previusStep = 'factCheck'
+    // const nextStep = null
 
     if (props.currentStep !== 'problemSolving') {
         return null
     }
+
+    // function handleChange(e) {
+    //     props.setProblemSolving(e.target.value)
+    //     props.submitForm()
+    // }
 
     return (
         <>
@@ -21,16 +26,17 @@ function ProblemSolving(props) {
                 <li>Evaluate you result, did it work? If not, try a diffrent solution</li>
             </ul>
              
-            <h4>Do you feel like it worked?</h4>
+            {/* <h4>Do you feel like it worked?</h4> */}
             
-        <div className="form-group radio-buttons">  
+        {/* <div className="form-group radio-buttons">  
                 <input 
                     type="radio" 
                     name="checkFacts"
                     id='factCheckYes'
                     value='yes'
                     checked={props.problemSolving === 'yes'}
-                    onChange={e => props.setProblemSolving(e.target.value)}
+                    // onChange={e => props.setProblemSolving(e.target.value)}
+                    onChange={handleChange}
                     />
                     <label className="radio-button-label green"htmlFor="factCheckYes">Yes</label>
                 
@@ -40,7 +46,8 @@ function ProblemSolving(props) {
                     id='factCheckNo'
                     value='no'
                     checked={props.problemSolving === 'no'}
-                    onChange={e => props.setProblemSolving(e.target.value)}
+                    // onChange={e => props.setProblemSolving(e.target.value)}
+                    onChange={handleChange}
                 />
                 <label className="radio-button-label red" htmlFor="factCheckNo">No</label>
             </div>
@@ -51,7 +58,7 @@ function ProblemSolving(props) {
                     nextStep={nextStep}
                     previusStep={previusStep}
                 />
-            </div>
+            </div> */}
         </>
     )
 }

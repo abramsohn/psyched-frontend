@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import Statement from './Statement.jsx' 
+import baseUrl from '../../helpers/baseUrl.js' 
+import Statement from './Statement.jsx'
 import Emotion from './Emotion.jsx' 
 import EmotionIntensity from './EmotionIntensity.jsx' 
 import FactCheck from './FactCheck.jsx' 
 import DistressTolerance from './DistressTolerance.jsx' 
 import OpositeAction from './OpositeAction.jsx' 
 import ProblemSolving from './ProblemSolving.jsx' 
-import baseUrl from '../../helpers/baseUrl.js' 
+//Skills
+import Distract from './Skills/Distract.jsx'
+import IMPROVE from './Skills/IMPROVE.jsx'
+import SelfSooth from './Skills/SelfSoothe.jsx'
+import TIPP from './Skills/TIPP.jsx'
 
 const MainForm = () => {
 
@@ -21,7 +26,7 @@ const MainForm = () => {
 
     useEffect(() => {
         submitForm();
-    }, [problemSolving, opositeAction, skill]);
+    }, [factCheck, skill]);
 
     function submitForm() {
         fetch(`${baseUrl}/distress-events`, {
@@ -69,6 +74,8 @@ const MainForm = () => {
                         emotion={emotion}
                         factCheck={factCheck}
                         setFactCheck={setFactCheck}
+                        submitForm={submitForm}
+
                     />
                     <DistressTolerance
                         currentStep={currentStep}
@@ -76,6 +83,7 @@ const MainForm = () => {
                         skill={skill}
                         setSkill={setSkill}
                         setFactCheck={setFactCheck}
+                        submitForm={submitForm}
                         />
                     <OpositeAction
                         currentStep={currentStep}
@@ -91,6 +99,11 @@ const MainForm = () => {
                         problemSolving={problemSolving}
                         setProblemSolving={setProblemSolving}
                     />
+
+                     <Distract currentStep={currentStep}/>
+                     <IMPROVE currentStep={currentStep}/>
+                     <SelfSooth currentStep={currentStep}/>
+                     <TIPP currentStep={currentStep}/>
                 </div>
             </form>
         </>

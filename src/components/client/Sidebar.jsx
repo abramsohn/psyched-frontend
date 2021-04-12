@@ -45,6 +45,7 @@ function Sidebar() {
             }),
             headers: { 'Content-Type': 'application/json' },
         })
+            .then(res => console.log(res.json()))
     }
 
     return (

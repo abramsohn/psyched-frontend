@@ -8,15 +8,20 @@ import Jealousy from './OpositeAction/Jealousy.jsx'
 import Love from './OpositeAction/Love.jsx'
 import Sadness from './OpositeAction/Sadness.jsx'
 import Shame from './OpositeAction/Shame.jsx'
-import FormNavigation from './FormNavigation.jsx'
+// import FormNavigation from './FormNavigation.jsx'
 
 function OpositeAction(props) {
-    const previusStep = 'factCheck'
-    const nextStep = null
+    // const previusStep = 'factCheck'
+    // const nextStep = null
     
     if (props.currentStep !== 'opositeAction') {
         return null
     }
+
+    // function handleChange(e) {
+    //     props.setOpositeAction(e.target.value)
+    //     props.submitForm()
+    // }
 
     return (
         <>
@@ -34,16 +39,17 @@ function OpositeAction(props) {
             <Sadness emotion={props.emotion} />
             <Shame emotion={props.emotion} />
 
-            <h4>Do you feel like it worked?</h4>
+            {/* <h4>Do you feel like it worked?</h4> */}
             
-            <div className="form-group radio-buttons">  
+            {/* <div className="form-group radio-buttons">  
                 <input 
                     type="radio" 
                     name="checkFacts"
                     id='factCheckYes'
                     value='yes'
                     checked={props.opositeAction === 'yes'}
-                    onChange={e => props.setOpositeAction(e.target.value)}
+                    // onChange={e => props.setOpositeAction(e.target.value)}
+                    onChange={handleChange}
                     />
                     <label className="radio-button-label green"htmlFor="factCheckYes">Yes</label>
                 
@@ -53,18 +59,19 @@ function OpositeAction(props) {
                     id='factCheckNo'
                     value='no'
                     checked={props.opositeAction === 'no'}
-                    onChange={e => props.setOpositeAction(e.target.value)}
+                    // onChange={e => props.setOpositeAction(e.target.value)}
+                    onChange={handleChange}
                 />
                 <label className="radio-button-label red" htmlFor="factCheckNo">No</label>
-            </div>
-            {props.factCheck}
-            <div className="form-nav">
-                <FormNavigation
-                    setCurrentStep={props.setCurrentStep}
-                    nextStep={nextStep}
-                    previusStep={previusStep}
-                />
-            </div>
+            </div> */}
+            {/* {props.factCheck} */}
+            {/* <div className="form-nav"> */}
+                {/* <FormNavigation */}
+                    {/* setCurrentStep={props.setCurrentStep} */}
+                    {/* nextStep={nextStep} */}
+                    {/* previusStep={previusStep} */}
+                {/* /> */}
+            {/* </div> */}
         </>
     )
 }
