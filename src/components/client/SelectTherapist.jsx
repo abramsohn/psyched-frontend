@@ -42,7 +42,8 @@ function SelectTherapist() {
     
     return (
         <>
-            <form  onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} id="main-form">
+                <div className="main-form-container">
                 <div className="form-group">
                     <label htmlFor="emotion">Select your therapist:</label>
                     <div className="input-group">
@@ -64,7 +65,8 @@ function SelectTherapist() {
                             })}
                         </select>
                     </div>
-                    <input type="submit" value="Change"/>
+                        <input type="submit" value="Change" />
+                        </div>
                 </div>
             </form>
         </>

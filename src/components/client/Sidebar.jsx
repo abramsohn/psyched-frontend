@@ -95,8 +95,7 @@ function Sidebar() {
                 <nav id="sidebar-navigation">
                     <ul>
                         <li>
-                            clients
-                            {/* <Link to='/client'>Dashboard</Link> */}
+                            <Link to='/client/clientList'>Client List</Link>
                         </li>
                         
                             

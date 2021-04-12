@@ -702,6 +702,43 @@ input[type="radio"] {
   width: 30%;
 }
 
+.clientList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.client {
+  background-color: var(--off-white);
+  display: grid;
+  grid-template-columns: fit-content(200px) 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "image content"
+    "image footer";
+  grid-gap: 20px;
+  margin-bottom: 4em;
+  width: 25%;
+  height: 150px;
+  padding: 20px;
+}
+.client-image img {
+  grid-area: image;
+  position: relative;
+  /* left: 25px; */
+  /* top: 25px; */
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.client-info {
+  grid-area: content;
+  z-index: 0;
+}
+
 /* Utill */
 .floatRight {
   float: right;
