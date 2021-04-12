@@ -62,6 +62,27 @@ function useProvideAuth() {
         // .catch(error => console.log({ 'Error': error }));
   };
 
+    const therapistSignup = (name, email, password) => {
+    return fetch(`${baseUrl}/users/therapist/signup`, {
+          method: 'POST',
+          credentials: 'include',
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+          }),
+          headers: { 'Content-Type': 'application/json' }, 
+      })
+      .then(res => res.json())
+      .then(response => {
+        setUser(response.name);
+        return response.name;
+        });
+        // .then(res => res.json())
+        // .then(user => console.log(user))
+        // .catch(error => console.log({ 'Error': error }));
+  };
+
   const signout = () => {
     return fetch(`${baseUrl}/users/signout`, {
       method: 'POST',
@@ -124,6 +145,7 @@ function useProvideAuth() {
     user,
     signin,
     signup,
+    therapistSignup,
     signout,
     // sendPasswordResetEmail,
     // confirmPasswordReset

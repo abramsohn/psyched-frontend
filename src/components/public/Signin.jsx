@@ -49,13 +49,21 @@ function Signin(props) {
                     <input type="submit" className="u-full-width button-primary" value="Sign In"/>
                 </fieldset>
             </form>
-            <p>Don&apos;t have an account? 
+            <p>
+                Don&apos;t have an account?
                 <button
                     className="link"
                     onClick={() => props.setCurrentForm('signup')}
                 >
+                    Signup
+                </button> <br />
+               Are you a therapist?
+                <button
+                    className="link"
+                    onClick={() => props.setCurrentForm('therapistSignup')}
+                >
                         Signup
-                </button>
+                </button> or login
             </p> 
         </div>
     )

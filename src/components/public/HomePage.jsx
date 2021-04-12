@@ -4,6 +4,7 @@ import { useAuth } from '../../useAuth.js';
 import { useHistory } from "react-router-dom";
 import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
+import TherapistSignup from "./TherapistSignup.jsx";
 
 
 function HomePage() {
@@ -31,11 +32,10 @@ function HomePage() {
                         </div>
                     </div>
                     <div className="six columns">
-                        {currentForm === 'signin' ?
-                            <Signin setCurrentForm={setCurrentForm} />
-                            :
-                            <Signup setCurrentForm={setCurrentForm} />
-                        }
+                        {currentForm === 'signin' && <Signin setCurrentForm={setCurrentForm} />}
+                        {currentForm === 'signup' && <Signup setCurrentForm={setCurrentForm} />}
+                        {currentForm === 'therapistSignup' && <TherapistSignup setCurrentForm={setCurrentForm} />}
+                        
 
 
                     </div>
