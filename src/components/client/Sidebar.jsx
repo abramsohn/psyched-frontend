@@ -76,17 +76,13 @@ function Sidebar() {
                         <li>
                             <Link to='/client'>Dashboard</Link>
                         </li>
-                            <Link to='/client/skills'>Skills Coaching</Link>
-                            <Link to='/client/skills-helper'>+</Link>
                         <li>
-                            Diary Card
+                            <Link to='/client/skills-helper'>Skills Coaching</Link>
                         </li>
                         <li>
-                            Mindfulness
+                            <Link to='/client/skills'>Skills Report</Link>
                         </li>
-                        <li>
-                            More Stuff
-                        </li>
+                            
                     </ul>
                 </nav>
             </>

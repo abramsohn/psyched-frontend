@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../useAuth.js';
 import { useHistory } from "react-router-dom";
 
-function Signin() {        
+function Signin(props) {        
     const auth = useAuth();
     let history = useHistory();
 
@@ -24,28 +24,40 @@ function Signin() {
     }
 
     return (
-        <form method='POST' onSubmit={handleSubmit}>
-            <fieldset>
-                <h2>Sign In</h2>
-                <label htmlFor="email">Email</label>
-                <input 
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)} 
-                />                   
-                
-                <label htmlFor="password">Password</label>
-                <input 
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)} 
-                />
+        <div className="form-signup">
+            <form method='POST' onSubmit={handleSubmit}>
+                <fieldset>
+                    <h2>Welcome Back!</h2>
+                    <label htmlFor="email">Email</label>
+                    <input 
+                        type="email"
+                        name="email"
+                        className="u-full-width"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)} 
+                    />                   
+                    
+                    <label htmlFor="password">Password</label>
+                    <input 
+                        type="password"
+                        name="password"
+                        className="u-full-width"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)} 
+                    />
 
-                <input type="submit" value="Sign In"/>
-            </fieldset>
-        </form>
+                    <input type="submit" className="u-full-width button-primary" value="Sign In"/>
+                </fieldset>
+            </form>
+            <p>Don&apos;t have an account? 
+                <button
+                    className="link"
+                    onClick={() => props.setCurrentForm('signup')}
+                >
+                        Signup
+                </button>
+            </p> 
+        </div>
     )
 }
 
