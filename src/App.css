@@ -739,6 +739,10 @@ input[type="radio"] {
   z-index: 0;
 }
 
+.distressEvents {
+  width: 75%;
+}
+
 /* Utill */
 .floatRight {
   float: right;

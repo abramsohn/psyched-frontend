@@ -36,7 +36,7 @@ function SelectTherapist() {
                 })
                 
                 .then(res => res.json())
-                .then(res => console.log(res))       
+                // .then(res => console.log(res))       
             }
         }
     
@@ -57,7 +57,7 @@ function SelectTherapist() {
                                      <option
                                             key={index}
                                             value={item.id}
-                                            selected={item.id === auth.user.therapist}
+                                            selected={item.id === auth.therapist}
                                     >
                                         {item.name}
                                         </option>
