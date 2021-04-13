@@ -13,7 +13,7 @@ function DistressTolerance(props) {
     function handleChange(e) {
         props.setSkill(e.target.value)
         props.setFactCheck('')
-        props.submitForm()
+        // props.submitForm()
     }
 
     return (

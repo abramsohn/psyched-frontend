@@ -18,6 +18,9 @@ export const useAuth = () => {
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
+  const [avatar, setAvatar] = useState(null);
+  const [therapist, setTherapist] = useState(null);
 
   // Wrap any Firebase methods we want to use making sure ...
   // ... to save the user to state.
@@ -34,8 +37,12 @@ function useProvideAuth() {
         })
           .then(res => res.json())
           .then(response => {
-                setUser(response.name);
-                return response.name;
+                // setUser(response.name);
+              setUser(response.name)
+              setRole(response.role)
+              setTherapist(response.therapist)
+              setAvatar(response.avatarImage)
+              return response.name;
             });
             // .then(user => (props.setUser(user)))
             // .catch(error => console.log({ 'Error': error }));
@@ -55,7 +62,11 @@ function useProvideAuth() {
       })
       .then(res => res.json())
       .then(response => {
-        setUser(response.name);
+        // setUser(response.name);
+         setUser(response.name)
+         setRole(response.role)
+         setTherapist(response.therapist)
+         setAvatar(response.avatarImage)
         return response.name;
         });
         // .then(res => res.json())
@@ -64,7 +75,8 @@ function useProvideAuth() {
   };
 
   const therapistSignup = (name, email, password) => {
-    console.log('therapist signup')
+
+
     return fetch(`${baseUrl}/users/therapist/signup`, {
           method: 'POST',
           credentials: 'include',
@@ -77,7 +89,11 @@ function useProvideAuth() {
       })
       .then(res => res.json())
       .then(response => {
-        setUser(response.name);
+        // setUser(response.name);
+         setUser(response.name)
+         setRole(response.role)
+         setTherapist(response.therapist)
+         setAvatar(response.avatarImage)
         return response.name;
         });
         // .then(res => res.json())
@@ -128,14 +144,19 @@ function useProvideAuth() {
         headers: { 'Content-Type': 'application/json' },
     })
     .then(res => res.json())
-     .then(response => { console.log(response)
+     .then(response => { 
        if (response.name) {
-         setUser({
-            name: response.name,
-            role: response.role,
-            avatar: response.avatarImage,
-            therapist: response.therapist
-          });
+         setUser(response.name)
+         setRole(response.role)
+         setTherapist(response.therapist)
+         setAvatar(response.avatarImage)
+          //  {
+            // name: response.name,
+            // role: response.role,
+            // avatar: response.avatarImage,
+            // therapist: response.therapist
+          //  }
+        //  );
           return response;
         } else {
           setUser(false);
@@ -154,6 +175,10 @@ function useProvideAuth() {
     signup,
     therapistSignup,
     signout,
+    role,
+    therapist,
+    avatar,
+
     // sendPasswordResetEmail,
     // confirmPasswordReset
   };

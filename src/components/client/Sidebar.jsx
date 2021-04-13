@@ -7,7 +7,6 @@ import { useAuth } from '../../useAuth'
 
 function Sidebar() {
     const auth = useAuth();
-
     const [avatar, setAvater] = useState('')
     
     useEffect(() => {
@@ -74,7 +73,7 @@ function Sidebar() {
                
             
             </header>
-            {auth.user.role === 'CLIENT' ?
+            {auth.role === 'CLIENT' ?
                 <nav id="sidebar-navigation">
                     <ul>
                         <li>

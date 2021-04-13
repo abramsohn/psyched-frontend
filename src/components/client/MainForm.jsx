@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import baseUrl from '../../helpers/baseUrl.js' 
 import Statement from './Statement.jsx'
 import Emotion from './Emotion.jsx' 
@@ -24,8 +24,15 @@ const MainForm = () => {
     const [opositeAction, setOpositeAction] = useState('')
     const [problemSolving, setProblemSolving] = useState('')
 
+    const isInitialMount = useRef(true);
+
     useEffect(() => {
-        submitForm();
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+        } else {
+            console.log('submitting')
+            submitForm();
+        }
     }, [factCheck, skill]);
 
     function submitForm() {

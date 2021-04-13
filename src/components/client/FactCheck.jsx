@@ -10,8 +10,8 @@ function FactCheck(props) {
     }
 
     // async function handleChange(e) {
-    //     await props.setFactCheck(e.target.value)
-    //     props.submitForm()
+        // await props.setFactCheck(e.target.value)
+        // props.submitForm()
     // }
 
     return (
