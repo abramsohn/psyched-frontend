@@ -21,35 +21,36 @@ function useProvideAuth() {
   const [role, setRole] = useState(null);
   const [avatar, setAvatar] = useState(null);
   const [therapist, setTherapist] = useState(null);
+  const [messege, setMessege] = useState('');
 
   // Wrap any Firebase methods we want to use making sure ...
   // ... to save the user to state.
   const signin = (email, password) => {
-      return fetch(`${baseUrl}/users/signin`, {
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify({
-                email: email,
-                password: password,
-            }),
-            headers: { 'Content-Type': 'application/json' },
+    return fetch(`${baseUrl}/users/signin`, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+      headers: { 'Content-Type': 'application/json' },
             
-        })
-          .then(res => res.json())
-          .then(response => {
-                // setUser(response.name);
-              setUser(response.name)
-              setRole(response.role)
-              setTherapist(response.therapist)
-              setAvatar(response.avatarImage)
-              return response.name;
-            });
+    })
+      .then(res => res.json())
+      .then(response => {
+        setUser(response.name)
+        setRole(response.role)
+        setTherapist(response.therapist)
+        setAvatar(response.avatarImage)
+        setMessege(response.messege)
+        return response.name;
+      }
+      );
             // .then(user => (props.setUser(user)))
             // .catch(error => console.log({ 'Error': error }));
     };
 
   const signup = (name, email, password) => {
-    console.log('user signup')
     return fetch(`${baseUrl}/users/signup`, {
           method: 'POST',
           credentials: 'include',
@@ -89,7 +90,6 @@ function useProvideAuth() {
       })
       .then(res => res.json())
       .then(response => {
-        // setUser(response.name);
          setUser(response.name)
          setRole(response.role)
          setTherapist(response.therapist)
@@ -178,6 +178,7 @@ function useProvideAuth() {
     role,
     therapist,
     avatar,
+    messege,
 
     // sendPasswordResetEmail,
     // confirmPasswordReset
